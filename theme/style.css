@@ -826,16 +826,30 @@ body:has(.package-header #darkModeToggler) #teacher-mode-toggler-wrapper { margi
 .exe-web-site .page-counter .page-counter-sep { color: var(--sp-magenta); margin: 0 2px; }
 body.exe-web-site { padding-top: 56px; }
 
-/* Toggler hit area cleanup */
+/* Visually-hidden helper for screen-reader-only labels.
+   The `clip` property is deprecated and does NOT shrink layout, so on mobile
+   the ~70-80px label text ("Spectrum tweaks", "(nueva ventana)", etc.)
+   extended past the viewport and forced a shrink-to-fit "zoom". The full
+   inset-clip-path recipe below actually collapses the box. */
 #siteNavToggler span,
 #searchBarTogger span,
 #darkModeToggler span,
 #spectrumTweaksToggler span,
 .nav-buttons a span,
-.nav-buttons span span {
-    position: absolute;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
+.nav-buttons span span,
+.toggler > span,
+#made-with-eXe a > span,
+#made-with-eXe a > span > span {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
 }
 
 /* Cassette-key base style for every Spectrum toggler on the black top bar */
