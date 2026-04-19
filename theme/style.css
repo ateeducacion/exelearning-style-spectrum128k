@@ -1,0 +1,1436 @@
+/*!
+ * eXeLearning v4 Spectrum 128K Style
+ * ----------------------------------
+ * Author: Área de Tecnología Educativa · Consejería de Educación, FP y
+ *         Actividad Física del Gobierno de Canarias
+ * Project: eXeLearning.net
+ * License: Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)
+ *
+ * A retro re-skin inspired by the Sinclair ZX Spectrum 128K:
+ * rainbow stripes, BRIGHT palette, pixel typography, subtle CRT scanlines.
+ *
+ * Note: config.xml lists third-party assets (fonts, icons) included here.
+ */
+
+@charset "UTF-8";
+
+/* -------------------------------------------------------------------------
+   Fonts
+   ------------------------------------------------------------------------- */
+@font-face {
+    font-family: "VT323";
+    src: url(fonts/VT323-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url(fonts/JetBrainsMono-Regular.woff2) format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* -------------------------------------------------------------------------
+   Theme tokens
+   ------------------------------------------------------------------------- */
+:root {
+    /* Spectrum BRIGHT palette */
+    --sp-black:     #000000;
+    --sp-blue:      #0000D7;
+    --sp-red:       #D70000;
+    --sp-magenta:   #D700D7;
+    --sp-green:     #00D700;
+    --sp-cyan:      #00D7D7;
+    --sp-yellow:    #D7D700;
+    --sp-white:     #FFFFFF;
+
+    /* Normal (non-bright) ink */
+    --sp-blue-d:    #0000A8;
+    --sp-cyan-d:    #00A8A8;
+    --sp-magenta-d: #A800A8;
+
+    /* Semantic roles (light / paper mode is default for exports) */
+    --bg:           #FFFFFF;
+    --bg-alt:       #F4F4F0;
+    --ink:          #101010;
+    --ink-dim:      #404048;
+    --ink-faint:    #707078;
+    --border:       var(--sp-blue);
+    --border-soft:  #C8C8E0;
+    --link:         var(--sp-magenta-d);
+    --link-hover:   var(--sp-blue);
+    --accent:       var(--sp-magenta-d);
+    --accent-2:     var(--sp-blue);
+
+    /* Typography */
+    --font-pixel: "VT323", ui-monospace, "Cascadia Mono", "Courier New", monospace;
+    --font-mono:  "JetBrains Mono", ui-monospace, "Cascadia Mono", "Menlo", monospace;
+
+    /* Layout */
+    --stripe-h: 6px;
+
+    /* Stripe gradient — overridable by body.spectrum-stripes-*
+       Default is 128K: repeating diagonal stripes like the logo,
+       so the slant is visible on any strip size. */
+    --stripe-gradient: repeating-linear-gradient(
+        120deg,
+        var(--sp-red)    0    24px,
+        var(--sp-yellow) 24px 48px,
+        var(--sp-green)  48px 72px,
+        var(--sp-cyan)   72px 96px
+    );
+}
+
+/* 48K preset — 4 vertical colour bars (like the narrow side stripe
+   of the original 48K rubber-key model). */
+body.spectrum-stripes-48k {
+    --stripe-gradient: linear-gradient(
+        to right,
+        var(--sp-red)    0    25%,
+        var(--sp-yellow) 25%  50%,
+        var(--sp-green)  50%  75%,
+        var(--sp-cyan)   75% 100%
+    );
+}
+
+/* Monochrome preset — greys */
+body.spectrum-stripes-mono {
+    --stripe-gradient: linear-gradient(
+        to right,
+        #FFFFFF 0    25%,
+        #A8A8A8 25%  50%,
+        #707070 50%  75%,
+        #383838 75% 100%
+    );
+}
+
+/* Pixel-everywhere: applies VT323 to body text too */
+body.spectrum-pixel-all,
+body.spectrum-pixel-all .exe-content,
+body.spectrum-pixel-all .exe-content p,
+body.spectrum-pixel-all .exe-content li,
+body.spectrum-pixel-all .exe-content td,
+body.spectrum-pixel-all .exe-content th {
+    font-family: var(--font-pixel);
+    font-size: 18px;
+    line-height: 1.45;
+}
+
+/* -------------------------------------------------------------------------
+   Common body / content styles
+   ------------------------------------------------------------------------- */
+body.exe-export {
+    background: var(--bg);
+    font-family: var(--font-mono);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.exe-content {
+    font-family: var(--font-mono);
+    line-height: 1.6;
+    font-size: 15px;
+    color: var(--ink);
+}
+
+body.exe-export input,
+body.exe-export select,
+body.exe-export textarea {
+    font-family: var(--font-mono);
+    font-size: 1em;
+}
+body.exe-export button {
+    font-family: var(--font-pixel);
+}
+body#tinymce {
+    font-family: var(--font-mono);
+    line-height: 1.6;
+    font-size: 15px;
+}
+.exe-content p { margin: 1em 0; text-wrap: pretty; }
+.exe-content a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.exe-content a:hover,
+.exe-content a:focus {
+    color: var(--link-hover);
+    text-decoration: none;
+    background: color-mix(in srgb, var(--sp-yellow) 60%, transparent);
+}
+.box-content a { text-decoration: underline; }
+.box-content a:hover { text-decoration: none; }
+.box-content a:focus { text-decoration: underline; }
+.box-content a:focus-visible { --bs-focus-ring-color: var(--sp-magenta); }
+
+/* Headings use the pixel font for retro chrome */
+.exe-content h1,
+.exe-content h2,
+.exe-content h3,
+.exe-content h4,
+.exe-content h5,
+.exe-content h6 {
+    font-family: var(--font-pixel);
+    font-weight: normal;
+    letter-spacing: 0.3px;
+    line-height: 1.15;
+    margin: 1.2em 0 0.4em;
+    color: var(--accent-2);
+}
+
+/* -------------------------------------------------------------------------
+   Page chrome — single-page and export layouts
+   ------------------------------------------------------------------------- */
+.exe-export .exe-content {
+    max-width: 1280px;
+    padding: 24px;
+    margin: 0 auto;
+    position: relative;
+    background: var(--bg);
+}
+
+/* The iconic rainbow stripe at the top of each page */
+.exe-export .exe-content::before {
+    content: "";
+    display: block;
+    height: var(--stripe-h);
+    margin: -24px -24px 20px;
+    background: var(--stripe-gradient);
+}
+
+/* Package header (course-level title) */
+.exe-content .package-header {
+    color: var(--ink);
+    position: relative;
+    padding: 10px 14px;
+    background: var(--sp-blue);
+    color: var(--sp-white);
+    border: 2px solid var(--sp-black);
+    margin-bottom: 18px;
+}
+.exe-content .package-header .package-title {
+    color: var(--sp-white);
+    font-family: var(--font-pixel);
+    font-size: 1.8em;
+    letter-spacing: 0.5px;
+    margin: 0;
+    line-height: 1.2;
+}
+.exe-content .package-subtitle {
+    color: var(--sp-yellow);
+    font-family: var(--font-pixel);
+    font-size: 1.1em;
+    margin: 0.2em 0 0;
+    opacity: 0.95;
+}
+
+body:has(#teacher-mode-toggler-wrapper) .package-title { padding-right: 100px; }
+#teacher-mode-toggler-wrapper { float: right; }
+body:has(.package-header #darkModeToggler) #teacher-mode-toggler-wrapper { margin-right: 45px; }
+#teacher-mode-toggler-wrapper .form-check-input { filter: grayscale(1); }
+#teacher-mode-toggler-wrapper .form-check-input:checked {
+    filter: grayscale(0);
+    background-color: var(--sp-yellow);
+    border-color: var(--sp-yellow);
+}
+
+/* Page header / title */
+.exe-content .page-header {
+    color: var(--accent-2);
+    padding-top: 22px;
+    border-top: 0;
+    margin-top: 22px;
+    position: relative;
+}
+.exe-content .page-header::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 3px;
+    background: var(--stripe-gradient);
+}
+.exe-content .page-title {
+    font-family: var(--font-pixel);
+    font-size: 2.4em;
+    color: var(--sp-blue-d);
+    margin: 0;
+    font-weight: normal;
+    letter-spacing: 0.4px;
+}
+
+/* Page counter pill */
+.exe-content .page-counter {
+    position: absolute;
+    top: 55px;
+    right: 40px;
+    background: var(--sp-black);
+    color: var(--sp-yellow);
+    font-family: var(--font-pixel);
+    font-size: 1em;
+    letter-spacing: 1px;
+    padding: 1px 10px;
+    border: 1px solid var(--sp-yellow);
+    z-index: 99;
+}
+
+/* -------------------------------------------------------------------------
+   Boxes / iDevices
+   ------------------------------------------------------------------------- */
+.exe-content .box {
+    border: 2px solid var(--border);
+    margin: 22px 0;
+    border-radius: 0;
+    background: var(--bg);
+    box-shadow: 4px 4px 0 var(--sp-magenta);
+    position: relative;
+}
+.exe-content .box-head {
+    border: 0;
+    background: var(--sp-blue);
+    color: var(--sp-white);
+    min-height: 56px;
+    padding: 8px 14px 8px 12px;
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+}
+/* iconic rainbow ribbon on the right of every box header */
+.exe-content .box-head::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 60px;
+    background: var(--stripe-gradient);
+    opacity: 0.9;
+    pointer-events: none;
+}
+.exe-content .box-icon {
+    float: left;
+    margin-right: 12px;
+    background: var(--sp-black);
+    padding: 3px;
+    border: 1px solid var(--sp-white);
+}
+.exe-content .box-head.no-icon { padding-left: 14px; }
+.exe-content .box-icon img {
+    width: 46px;
+    height: auto;
+    scale: 0.9;
+    filter: drop-shadow(1px 1px 0 var(--sp-magenta));
+}
+#node-content-container.exe-content .box-head .exe-icon img {
+    max-width: none;
+    height: 42px;
+    width: auto;
+    scale: 1;
+    margin-right: -10px;
+}
+
+.exe-export .box-title {
+    padding-top: 8px;
+    color: var(--sp-white);
+    font-family: var(--font-pixel);
+    font-size: 1.55em;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    margin: 0;
+    padding-right: 80px; /* clear the rainbow ribbon */
+}
+
+.exe-content .box-content {
+    border-top: 2px solid var(--border);
+    background: var(--bg);
+}
+.exe-export .box-content { padding: 18px 22px; }
+
+.exe-export .box-head .box-toggle {
+    position: absolute;
+    right: 70px; /* avoid rainbow ribbon */
+    top: 10px;
+    border: 1px solid var(--sp-white);
+    display: block;
+    background: transparent url(img/icons.png) no-repeat -300px 0;
+    background-size: auto 50px;
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    transition: rotate 0.3s ease;
+    filter: invert(1);
+    z-index: 1;
+}
+.exe-content .box.minimized .box-head { border-radius: 0; }
+.exe-export .box.minimized .box-head .box-toggle { rotate: -180deg; }
+.exe-export .box-head .box-toggle span {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* iDevices with no box head */
+.exe-export .box.no-header:not(:has(.box-toggle)) .box-head { display: none; }
+.exe-export .box.no-header:not(:has(.box-toggle)) .box-content { border-top: 0; }
+
+/* -------------------------------------------------------------------------
+   iDevice / feedback buttons — "cassette keys"
+   ------------------------------------------------------------------------- */
+.exe-content .iDevice_buttons input,
+.exe-content .iDevice_buttons button {
+    font-family: var(--font-pixel);
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+    text-transform: lowercase;
+    border: 2px solid var(--sp-black);
+    background: var(--sp-yellow);
+    color: var(--sp-black);
+    padding: 4px 16px 2px;
+    margin: 0.5em 6px 0.5em 0;
+    box-shadow: 3px 3px 0 var(--sp-magenta);
+    border-radius: 0;
+    cursor: pointer;
+    transition: none;
+}
+.exe-content .iDevice_buttons input:hover,
+.exe-content .iDevice_buttons input:focus,
+.exe-content .iDevice_buttons button:hover,
+.exe-content .iDevice_buttons button:focus {
+    background: var(--sp-cyan);
+    color: var(--sp-black);
+    outline: none;
+}
+.exe-content .iDevice_buttons input:active,
+.exe-content .iDevice_buttons button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--sp-magenta);
+}
+
+/* -------------------------------------------------------------------------
+   Quotes, code, tables
+   ------------------------------------------------------------------------- */
+.exe-content blockquote,
+.exe-content .styled-qc {
+    border-left: 6px solid var(--sp-magenta);
+    padding: 12px 18px;
+    background: var(--bg-alt);
+    margin: 1em 0;
+    font-style: italic;
+    position: relative;
+}
+.exe-content .styled-qc { margin-top: 2em; }
+
+.exe-content .pre-code,
+.exe-content .highlighted-code,
+.exe-content pre {
+    background: var(--sp-black);
+    color: var(--sp-white);
+    border: 2px solid var(--sp-cyan);
+    padding: 14px 18px;
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+    line-height: 1.55;
+    border-radius: 0;
+    overflow-x: auto;
+}
+.exe-content code {
+    font-family: var(--font-mono);
+    background: var(--bg-alt);
+    color: var(--sp-magenta-d);
+    padding: 0 4px;
+    border: 1px solid var(--border-soft);
+}
+
+.exe-content table,
+.exe-content .exe-table {
+    border-collapse: collapse;
+    border: 2px solid var(--border);
+    font-family: var(--font-mono);
+}
+.exe-content table th,
+.exe-content .exe-table th {
+    background: var(--sp-blue);
+    color: var(--sp-white);
+    font-family: var(--font-pixel);
+    font-size: 1.1em;
+    font-weight: normal;
+    padding: 8px 12px;
+    border: 2px solid var(--border);
+}
+.exe-content table td,
+.exe-content .exe-table td {
+    padding: 8px 12px;
+    border: 2px solid var(--border);
+}
+
+/* -------------------------------------------------------------------------
+   Effects (accordion, etc.)
+   ------------------------------------------------------------------------- */
+.exe-content .exe-accordion {
+    border: 2px solid var(--border);
+    border-radius: 0;
+}
+.exe-content .fx-accordion-title {
+    background: var(--sp-blue);
+    background-size: auto 40px;
+    border-color: var(--border) !important;
+    position: relative;
+    color: var(--sp-white);
+}
+.exe-content .fx-accordion-title:after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent url(img/icons.png) no-repeat -240px 50%;
+    background-size: auto 40px;
+    border-color: var(--border) !important;
+    opacity: 0.8;
+    filter: invert(1);
+    transition: all 0.3s ease;
+    transform: rotate(180deg);
+}
+.exe-content .fx-accordion-title:hover:after { opacity: 1; }
+.exe-content .fx-accordion-title h2 {
+    color: var(--sp-yellow);
+    padding-right: 60px;
+    font-family: var(--font-pixel);
+}
+.exe-content .fx-accordion-title.active h2 { color: var(--sp-white); }
+.exe-content .fx-accordion-title.active { padding-bottom: 0; }
+.exe-content .fx-accordion-title.active:after { transform: rotate(0); }
+.fx-accordion-content { color: var(--ink); }
+
+/* -------------------------------------------------------------------------
+   Site (multi-page) layout
+   ------------------------------------------------------------------------- */
+.exe-web-site .exe-content {
+    max-width: none;
+    padding: 0;
+    background: var(--bg);
+}
+.exe-web-site .main-header,
+.exe-web-site .page-content,
+.exe-web-site #siteFooterContent {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.exe-web-site .page-content { padding: 0; }
+
+.exe-web-site .exe-content {
+    position: relative;
+    /* Soft left "column" behind the sidebar — faint off-white */
+    box-shadow:
+        inset 320px 0 0 0 var(--bg-alt),
+        inset 321px 0 0 0 var(--border);
+}
+.exe-web-site main.page {
+    padding-top: 24px;
+    padding-left: 340px;
+    padding-right: 22px;
+    min-height: calc(100vh - 147px);
+}
+.exe-web-site #siteFooter {
+    background: none;
+    border: none;
+    padding: 0 22px 0 340px;
+}
+.exe-web-site #siteFooterContent {
+    background: var(--sp-blue);
+    color: var(--sp-white);
+    border: 2px solid var(--sp-black);
+    margin: 0 auto;
+    padding: 18px 22px;
+    font-family: var(--font-pixel);
+    border-radius: 0;
+}
+.exe-web-site #siteFooterContent a {
+    color: var(--sp-yellow);
+    text-decoration: none;
+    border: 1px solid var(--sp-yellow);
+    padding: 2px 8px;
+}
+.exe-web-site #siteFooterContent a:hover,
+.exe-web-site #siteFooterContent a:focus {
+    background: var(--sp-yellow);
+    color: var(--sp-blue);
+}
+
+/* Single-page exports use the package header area */
+#siteFooter {
+    background: var(--bg-alt);
+    color: var(--ink);
+    padding: 18px;
+    border: 2px solid var(--border);
+    border-radius: 0;
+}
+#siteFooter a { color: var(--link); text-decoration: underline; }
+#packageLicense {
+    text-align: left;
+    font-size: 0.9em;
+    line-height: 1em;
+    margin-bottom: 1em;
+}
+#packageLicense p { margin: 0; }
+#packageLicense .license-label {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+}
+#packageLicense a {
+    color: var(--ink-dim);
+    text-transform: capitalize;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    overflow: hidden;
+    line-height: 15px;
+}
+#packageLicense a:hover,
+#packageLicense a:focus {
+    text-decoration: none;
+    color: var(--sp-magenta-d);
+}
+#packageLicense.propietary {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    height: 0;
+}
+#packageLicense.cc { padding: 0 20px 0 90px; background: url(img/licenses.gif) no-repeat 0 0; }
+#packageLicense.cc-by-sa   { background-position: 0 -100px; }
+#packageLicensea.cc-by-nd  { background-position: 0 -200px; }
+#packageLicense.cc-by-nc   { background-position: 0 -300px; }
+#packageLicense.cc-by-nc-sa{ background-position: 0 -400px; }
+#packageLicense.cc-by-nc-nd{ background-position: 0 -500px; }
+#packageLicense.cc-0       { background-position: 0 -600px; }
+
+/* -------------------------------------------------------------------------
+   Breadcrumbs
+   ------------------------------------------------------------------------- */
+#siteBreadcrumbs {
+    font-family: var(--font-pixel);
+    font-size: 1.05em;
+    color: var(--sp-white);
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+#siteBreadcrumbs ul { margin: 0; padding: 0; list-style: none; }
+#siteBreadcrumbs li { margin: 0; padding: 0; list-style: none; display: inline; }
+#siteBreadcrumbs a { color: var(--sp-yellow); text-decoration: none; }
+#siteBreadcrumbs a:hover,
+#siteBreadcrumbs a:focus { color: var(--sp-white); text-decoration: underline; }
+#siteBreadcrumbs a img { position: relative; top: -2px; }
+#siteBreadcrumbs a:after {
+    content: "/";
+    margin: 0 0.5em;
+    color: var(--sp-cyan);
+}
+#exe-index #siteBreadcrumbs { display: none; }
+#siteBreadcrumbsHome:hover img,
+#siteBreadcrumbsHome:focus img {
+    filter: brightness(1.1) saturate(1.1) hue-rotate(350deg);
+}
+#siteBreadcrumbs strong { font-weight: normal; color: var(--sp-white); opacity: 0.95; }
+.package-header.width-breadcrumbs .package-title,
+.package-header.width-breadcrumbs .package-subtitle {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* -------------------------------------------------------------------------
+   Sidebar navigation
+   ------------------------------------------------------------------------- */
+#skipNav:focus { top: 4px; }
+#sidebar-nav.fixed { position: fixed; }
+#siteNav {
+    float: left;
+    width: 320px;
+    font-family: var(--font-pixel);
+}
+@media (min-width: 576px) {
+    #siteNav {
+        position: fixed;
+        max-height: calc(100vh - 50px);
+        overflow-y: auto;
+        padding-bottom: 43px;
+    }
+}
+#siteNav .other-section { display: none; }
+#siteNav ul { margin: 10px 0 0 10px; padding: 0; list-style: none; }
+#siteNav ul ul { margin-top: 4px; }
+#siteNav li { margin: 0 0 3px 0; padding: 0; list-style: none; }
+#siteNav a {
+    color: var(--ink);
+    display: block;
+    padding: 6px 14px;
+    max-width: 300px;
+    background: transparent;
+    border-left: 4px solid transparent;
+    border-radius: 0;
+    font-size: 1.15em;
+    line-height: 1.25;
+    transition: none;
+    position: relative;
+}
+#siteNav a::before {
+    content: ">";
+    color: var(--ink-faint);
+    margin-right: 6px;
+    font-family: var(--font-pixel);
+}
+#siteNav a.active {
+    color: var(--sp-white);
+    background: var(--accent);
+    border-left-color: var(--sp-yellow);
+    text-decoration: none;
+}
+#siteNav a.active::before { content: "\25B6"; color: var(--sp-yellow); }
+#siteNav a:hover,
+#siteNav a:focus {
+    background: var(--sp-blue);
+    color: var(--sp-white);
+    text-decoration: none;
+    box-shadow: none;
+}
+#siteNav a:hover::before,
+#siteNav a:focus::before { color: var(--sp-yellow); }
+
+/* Special / highlighted links */
+#siteNav a.highlighted-link {
+    background: var(--sp-yellow);
+    color: var(--sp-black);
+    box-shadow: inset 0 0 0 1px var(--sp-black);
+}
+#siteNav a.highlighted-link:hover,
+#siteNav a.highlighted-link:focus {
+    background: var(--sp-cyan);
+    color: var(--sp-black);
+    box-shadow: inset 0 0 0 1px var(--sp-black);
+}
+
+#siteNav ul ul { margin-left: 0; padding-left: 16px; border-left: 1px dashed var(--ink-faint); }
+#siteNav ul ul a { padding-left: 30px; font-size: 1.05em; }
+#siteNav ul ul ul a { padding-left: 46px; font-size: 1em; }
+#siteNav ul ul ul ul a { padding-left: 62px; }
+
+/* Dropdown toggle buttons */
+#siteNav a { position: relative; }
+#siteNav a:has(button) { padding-right: 35px; }
+#siteNav a button {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border: none;
+    background: transparent url(img/icons.png) no-repeat -185px 50%;
+    background-size: auto 30px;
+    transform: rotate(180deg);
+    transition: all 0.3s ease;
+    filter: invert(1);
+}
+#siteNav a button.open-ul { transform: rotate(0); }
+#siteNav a button span {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* -------------------------------------------------------------------------
+   Top navigation bar (prev / next + toggles)
+   ------------------------------------------------------------------------- */
+.nav-buttons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50px;
+    border: none;
+    background: var(--sp-black);
+    width: 100%;
+    border-bottom: 2px solid var(--sp-cyan);
+    z-index: 100;
+}
+/* Spectrum rainbow stripe underneath the top bar */
+.nav-buttons::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -6px;
+    height: 4px;
+    background: var(--stripe-gradient);
+}
+.nav-buttons .nav-button-left {
+    position: absolute;
+    top: 0;
+    right: 160px;
+    display: block;
+    background: transparent url(img/icons.png) no-repeat -100px 0;
+    background-size: auto 50px;
+    width: 50px;
+    height: 50px;
+    filter: invert(1);
+}
+.nav-buttons .nav-button-right {
+    position: absolute;
+    top: 0;
+    right: 110px;
+    display: block;
+    background: transparent url(img/icons.png) no-repeat -150px 0;
+    background-size: auto 50px;
+    width: 50px;
+    height: 50px;
+    filter: invert(1);
+}
+.nav-buttons span.nav-button {
+    opacity: 0.4;
+    filter: grayscale(1) invert(1);
+    cursor: not-allowed;
+}
+
+/* Page counter pinned to the top bar in site mode */
+.exe-web-site .page-counter {
+    position: fixed;
+    top: 0;
+    right: 280px;
+    z-index: 101;
+    margin: 0;
+    background: var(--sp-black);
+    color: var(--sp-yellow);
+    font-family: var(--font-pixel);
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    padding: 4px 10px;
+    border: 1px solid var(--sp-yellow);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    top: 10px;
+}
+.exe-web-site .page-counter .page-counter-label,
+.exe-web-site .page-counter .page-counter-content {
+    font-family: var(--font-pixel);
+    color: inherit;
+}
+.exe-web-site .page-counter strong { font-weight: normal; color: var(--sp-cyan); }
+.exe-web-site .page-counter .page-counter-sep { color: var(--sp-magenta); margin: 0 2px; }
+body.exe-web-site { padding-top: 56px; }
+
+/* Toggler hit area cleanup */
+#siteNavToggler span,
+#searchBarTogger span,
+#darkModeToggler span,
+#spectrumTweaksToggler span,
+.nav-buttons a span,
+.nav-buttons span span {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Cassette-key base style for every Spectrum toggler on the black top bar */
+.exe-web-site #siteNavToggler,
+.exe-web-site #searchBarTogger,
+.exe-web-site #darkModeToggler,
+.exe-web-site #spectrumTweaksToggler {
+    position: fixed;
+    top: 6px;
+    width: 40px;
+    height: 38px;
+    border: 2px solid var(--sp-black);
+    background-repeat: no-repeat;
+    background-size: auto 40px;
+    background-position: center center;
+    z-index: 110;
+    cursor: pointer;
+    filter: none;
+    scale: 1;
+    box-shadow: 2px 2px 0 var(--sp-black);
+    transition: transform 80ms ease;
+}
+.exe-web-site #siteNavToggler:active,
+.exe-web-site #searchBarTogger:active,
+.exe-web-site #darkModeToggler:active,
+.exe-web-site #spectrumTweaksToggler:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--sp-black);
+}
+
+/* Menu — yellow key on the far left (uses a self-contained SVG "hamburger") */
+.exe-web-site #siteNavToggler {
+    left: 10px;
+    background-color: var(--sp-yellow);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='square'><line x1='4' y1='7' x2='20' y2='7'/><line x1='4' y1='12' x2='20' y2='12'/><line x1='4' y1='17' x2='20' y2='17'/></svg>");
+    background-size: 24px 24px;
+    background-position: center center;
+}
+.exe-web-site #siteNavToggler:hover,
+.exe-web-site #siteNavToggler:focus {
+    background-color: var(--sp-white);
+}
+
+/* Search — cyan key */
+.exe-web-site #searchBarTogger {
+    left: 56px;
+    background-color: var(--sp-cyan);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='square'><circle cx='11' cy='11' r='6'/><line x1='16' y1='16' x2='21' y2='21'/></svg>");
+    background-size: 22px 22px;
+    background-position: center center;
+}
+.exe-web-site #searchBarTogger:hover,
+.exe-web-site #searchBarTogger:focus {
+    background-color: var(--sp-white);
+}
+
+/* Dark mode — sun icon on a yellow key (flips to a moon when dark mode is on) */
+.exe-web-site #darkModeToggler {
+    right: 60px;
+    background-color: var(--sp-yellow);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000' stroke='%23000' stroke-width='2' stroke-linecap='square'><circle cx='12' cy='12' r='4'/><g stroke-linecap='round' fill='none'><line x1='12' y1='2' x2='12' y2='4'/><line x1='12' y1='20' x2='12' y2='22'/><line x1='2' y1='12' x2='4' y2='12'/><line x1='20' y1='12' x2='22' y2='12'/><line x1='4.9' y1='4.9' x2='6.3' y2='6.3'/><line x1='17.7' y1='17.7' x2='19.1' y2='19.1'/><line x1='4.9' y1='19.1' x2='6.3' y2='17.7'/><line x1='17.7' y1='6.3' x2='19.1' y2='4.9'/></g></svg>");
+    background-size: 24px 24px;
+    background-position: center center;
+}
+.exe-web-site #darkModeToggler:hover,
+.exe-web-site #darkModeToggler:focus {
+    background-color: var(--sp-white);
+}
+
+/* Tweaks — magenta key, pinned to the far right */
+.exe-web-site #spectrumTweaksToggler {
+    right: 10px;
+    background-color: var(--sp-magenta);
+    background-image: none;
+    color: var(--sp-white);
+    font-family: var(--font-pixel);
+    font-size: 22px;
+    line-height: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.exe-web-site #spectrumTweaksToggler::before {
+    content: "\2699"; /* gear */
+    display: block;
+    line-height: 1;
+}
+.exe-web-site #spectrumTweaksToggler:hover,
+.exe-web-site #spectrumTweaksToggler:focus {
+    background-color: var(--sp-white);
+    color: var(--sp-magenta-d);
+}
+
+/* Single-page exports put the dark-mode toggle inside the blue package header */
+#darkModeToggler {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    border: 2px solid var(--sp-black);
+    display: block;
+    background: var(--sp-yellow) url(img/icons.png) no-repeat -205px center;
+    background-size: auto 40px;
+    width: 40px;
+    height: 38px;
+    z-index: 100;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--sp-black);
+}
+#darkModeToggler:hover,
+#darkModeToggler:focus { background-color: var(--sp-white); }
+#darkModeToggler:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--sp-black);
+}
+
+/* Tweaks button also exists in single-page mode (top-right of package header) */
+#spectrumTweaksToggler {
+    position: absolute;
+    right: 56px;
+    top: 8px;
+    border: 2px solid var(--sp-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sp-magenta);
+    width: 40px;
+    height: 38px;
+    z-index: 100;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--sp-black);
+    color: var(--sp-white);
+    font-family: var(--font-pixel);
+    font-size: 22px;
+    line-height: 1;
+    padding: 0;
+}
+#spectrumTweaksToggler::before { content: "\2699"; display: block; line-height: 1; }
+#spectrumTweaksToggler:hover,
+#spectrumTweaksToggler:focus { background-color: var(--sp-white); color: var(--sp-magenta-d); }
+
+/* Bigger Next/Previous labels on desktop */
+@media (min-width: 768px) {
+    .nav-buttons a span,
+    .nav-buttons span span {
+        position: relative;
+        clip: auto;
+    }
+    .nav-buttons .nav-button-left,
+    .nav-buttons .nav-button-right {
+        width: auto;
+        height: 30px;
+        top: 10px;
+        right: 20px;
+        min-width: 120px;
+        line-height: 30px;
+        background: none;
+        filter: none;
+        border: 2px solid var(--sp-cyan);
+        color: var(--sp-yellow) !important;
+        padding: 0;
+        text-align: center;
+        border-radius: 0;
+        font-size: 0.95em;
+        font-family: var(--font-pixel);
+        letter-spacing: 0.5px;
+        text-transform: lowercase;
+        transition: background 0.2s ease;
+    }
+    .nav-buttons a:hover,
+    .nav-buttons a:focus {
+        text-decoration: none;
+        background: var(--sp-magenta);
+        color: var(--sp-white) !important;
+        border-color: var(--sp-yellow);
+    }
+    .nav-buttons .nav-button-left  { right: 280px; }
+    .nav-buttons .nav-button-right { right: 150px; }
+    .exe-web-site #darkModeToggler { right: 60px; }
+    .exe-web-site #spectrumTweaksToggler { right: 10px; }
+    .exe-web-site .page-counter { right: 420px; }
+
+    /* Prepend/append arrows on the desktop text buttons */
+    .nav-buttons .nav-button-left  span::before {
+        content: "\25C0";
+        margin-right: 6px;
+        color: var(--sp-cyan);
+    }
+    .nav-buttons .nav-button-right span::after {
+        content: "\25B6";
+        margin-left: 6px;
+        color: var(--sp-cyan);
+    }
+    .nav-buttons a:hover span::before,
+    .nav-buttons a:focus span::before,
+    .nav-buttons a:hover span::after,
+    .nav-buttons a:focus span::after {
+        color: var(--sp-yellow);
+    }
+}
+
+/* Hidden navigation */
+html body.exe-web-site.siteNav-off .exe-content { box-shadow: none !important; }
+body.siteNav-off #siteNav { display: none; }
+body.siteNav-off main.page,
+body.siteNav-off #siteFooter { padding-left: 20px; }
+
+/* -------------------------------------------------------------------------
+   Search bar
+   ------------------------------------------------------------------------- */
+button#searchBarTogger { display: none; }
+.exe-search-on #searchBarTogger { display: inline; }
+#exe-client-search {
+    display: none;
+    max-width: 1280px;
+    margin: -10px auto 0 auto;
+    text-align: center;
+    margin-bottom: 24px;
+}
+#exe-client-search-text {
+    display: inline;
+    max-width: 600px;
+    font-family: var(--font-pixel);
+    font-size: 1.1em;
+    background: var(--sp-black);
+    color: var(--sp-yellow);
+    border: 2px solid var(--sp-cyan);
+    padding: 6px 12px;
+    border-radius: 0;
+}
+#exe-client-search-reset span {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+}
+#exe-client-search-submit {
+    text-indent: -999em;
+    background: var(--sp-yellow) url(img/icons.png) no-repeat -41px -1px;
+    background-size: auto 40px;
+    width: 38px;
+    height: 38px;
+    border: 2px solid var(--sp-black);
+    border-radius: 0;
+}
+#exe-client-search-reset.visible {
+    background: transparent url(img/icons.png) no-repeat -280px -1px;
+    background-size: auto 40px;
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    left: -5px;
+    opacity: 0.7;
+    border-radius: 0;
+}
+#exe-client-search-reset:hover,
+#exe-client-search-reset:focus { opacity: 1; }
+#exe-client-search-submit:hover,
+#exe-client-search-submit:focus { background-color: var(--sp-cyan); }
+#exe-client-search-results-list { text-align: left; }
+#exe-client-search-results-list ul,
+#exe-client-search-results-list li { margin: 2em 0; padding: 0; list-style: none; }
+#exe-client-search-results-list li { margin: 0 0 1em 0; }
+#exe-client-search-results-list p { margin-top: 2em; }
+
+/* -------------------------------------------------------------------------
+   Scrollbar
+   ------------------------------------------------------------------------- */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: var(--bg-alt); }
+*::-webkit-scrollbar-thumb {
+    background: var(--sp-cyan);
+    border: 2px solid var(--bg-alt);
+}
+*::-webkit-scrollbar-thumb:hover { background: var(--sp-magenta); }
+* { scrollbar-width: thin; }
+
+/* -------------------------------------------------------------------------
+   UDL colour coding (Universal theme convention, preserved)
+   Boxes whose icon filename starts with `eng_`, `exp_` or `rep_` get
+   green / blue / purple accents.
+   ------------------------------------------------------------------------- */
+/* Green — engagement */
+.exe-export .box:has(.box-icon img[src*="eng_"]) .box-head .box-toggle { background-position: -400px 0; }
+.box:has(.box-icon img[src*="eng_"]) a,
+.box:has(.box-icon img[src*="eng_"]) .box-title { color: var(--sp-green); }
+.exe-export .box:has(.box-icon img[src*="eng_"]) { border-color: var(--sp-green); box-shadow: 4px 4px 0 var(--sp-green); }
+.exe-export .box:has(.box-icon img[src*="eng_"]) .box-head { background: #007a00; }
+.box:has(.box-icon img[src*="eng_"]) .exe-table th { background: #007a00; color: #fff; border-color: var(--sp-green); }
+.box:has(.box-icon img[src*="eng_"]) .iDevice_buttons input,
+.box:has(.box-icon img[src*="eng_"]) .iDevice_buttons button { background: var(--sp-green); box-shadow: 3px 3px 0 #004a00; }
+
+/* Blue — expression */
+.exe-export .box:has(.box-icon img[src*="exp_"]) .box-head .box-toggle { background-position: -450px 0; }
+.box:has(.box-icon img[src*="exp_"]) a,
+.box:has(.box-icon img[src*="exp_"]) .box-title { color: var(--sp-cyan); }
+.exe-export .box:has(.box-icon img[src*="exp_"]) { border-color: var(--sp-cyan-d); box-shadow: 4px 4px 0 var(--sp-cyan-d); }
+.exe-export .box:has(.box-icon img[src*="exp_"]) .box-head { background: var(--sp-cyan-d); }
+.box:has(.box-icon img[src*="exp_"]) .exe-table th { background: var(--sp-cyan-d); color: #fff; border-color: var(--sp-cyan-d); }
+.box:has(.box-icon img[src*="exp_"]) .iDevice_buttons input,
+.box:has(.box-icon img[src*="exp_"]) .iDevice_buttons button { background: var(--sp-cyan); color: var(--sp-black); box-shadow: 3px 3px 0 var(--sp-cyan-d); }
+
+/* Purple — representation */
+.exe-export .box:has(.box-icon img[src*="rep_"]) .box-head .box-toggle { background-position: -500px 0; }
+.box:has(.box-icon img[src*="rep_"]) a,
+.box:has(.box-icon img[src*="rep_"]) .box-title { color: var(--sp-magenta); }
+.exe-export .box:has(.box-icon img[src*="rep_"]) { border-color: var(--sp-magenta); box-shadow: 4px 4px 0 var(--sp-magenta); }
+.exe-export .box:has(.box-icon img[src*="rep_"]) .box-head { background: var(--sp-magenta-d); }
+.box:has(.box-icon img[src*="rep_"]) .exe-table th { background: var(--sp-magenta-d); color: #fff; border-color: var(--sp-magenta); }
+.box:has(.box-icon img[src*="rep_"]) .iDevice_buttons input,
+.box:has(.box-icon img[src*="rep_"]) .iDevice_buttons button { background: var(--sp-magenta); color: var(--sp-white); box-shadow: 3px 3px 0 var(--sp-magenta-d); }
+
+/* -------------------------------------------------------------------------
+   Mobile
+   ------------------------------------------------------------------------- */
+@media (max-width: 575.98px) {
+    #sidebar-nav.fixed { position: relative; }
+    #siteNav { width: 100%; float: none; padding-bottom: 10px; }
+    #siteNav > ul { margin-right: 10px; }
+    #siteNav a { max-width: 100%; }
+    .exe-web-site main.page,
+    .exe-web-site #siteFooter { padding-left: 20px; }
+    .exe-web-site .exe-content { box-shadow: none !important; }
+    .exe-content .page-title { font-size: 1.8em; }
+    .exe-export .box-title { font-size: 1.3em; padding-right: 70px; }
+}
+
+/* -------------------------------------------------------------------------
+   Print
+   ------------------------------------------------------------------------- */
+@media print {
+    html body.exe-export { background: #fff; }
+    .exe-export .exe-content {
+        background: #fff;
+        box-shadow: none;
+        color: #000;
+        padding: 0;
+    }
+    .exe-export .exe-content::before { display: none; }
+    @page { margin: 1.5cm; }
+    .exe-export .box { box-shadow: none; }
+    .exe-export .box-head::after { display: none; }
+    .exe-export .box-toggle { display: none; }
+    .exe-web-site #siteNav,
+    .exe-web-site .nav-buttons,
+    .exe-web-site button.toggler { display: none; }
+    .exe-export #siteFooter,
+    .exe-export #siteFooterContent,
+    .exe-export main.page,
+    .exe-export .package-header,
+    .exe-export .page-header {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .exe-export .page-counter { top: 0; right: 0; }
+}
+
+/* -------------------------------------------------------------------------
+   Dark mode — the native ZX Spectrum state
+   The sun icon toggles between dark (on) and paper (off).
+   ------------------------------------------------------------------------- */
+@media screen {
+    html.exe-dark-mode {
+        --bg: #000000;
+        --bg-alt: #0a0a14;
+        --ink: #E8E8F0;
+        --ink-dim: #A0A0B0;
+        --ink-faint: #707080;
+        --border: var(--sp-cyan);
+        --border-soft: #202038;
+        --link: var(--sp-yellow);
+        --link-hover: var(--sp-white);
+        --accent: var(--sp-magenta);
+        --accent-2: var(--sp-cyan);
+    }
+    html.exe-dark-mode body.exe-export,
+    html.exe-dark-mode .exe-content {
+        background: var(--bg) !important;
+        color: var(--ink);
+    }
+    html.exe-dark-mode .exe-web-site .exe-content {
+        box-shadow:
+            inset 320px 0 0 0 var(--bg-alt),
+            inset 321px 0 0 0 var(--sp-cyan) !important;
+    }
+    html.exe-dark-mode .exe-content .page-title { color: var(--sp-cyan); }
+    html.exe-dark-mode .exe-content .package-header { background: var(--sp-blue); }
+    html.exe-dark-mode .exe-content .box {
+        background: var(--bg-alt);
+        border-color: var(--sp-cyan);
+        box-shadow: 4px 4px 0 var(--sp-magenta);
+    }
+    html.exe-dark-mode .exe-content .box-content { background: var(--bg-alt); }
+    html.exe-dark-mode .exe-content .box-head { background: var(--sp-blue); color: var(--sp-white); }
+    html.exe-dark-mode .exe-content a { color: var(--link); }
+    html.exe-dark-mode .exe-content a:hover,
+    html.exe-dark-mode .exe-content a:focus {
+        color: var(--link-hover);
+        background: color-mix(in srgb, var(--sp-magenta) 50%, transparent);
+    }
+    html.exe-dark-mode .exe-content code {
+        background: var(--bg-alt);
+        color: var(--sp-yellow);
+        border-color: var(--sp-cyan);
+    }
+    html.exe-dark-mode .exe-content h1,
+    html.exe-dark-mode .exe-content h2,
+    html.exe-dark-mode .exe-content h3,
+    html.exe-dark-mode .exe-content h4,
+    html.exe-dark-mode .exe-content h5,
+    html.exe-dark-mode .exe-content h6 { color: var(--sp-cyan); }
+
+    /* Site chrome in dark mode */
+    html.exe-dark-mode .nav-buttons { background: var(--sp-black); border-bottom-color: var(--sp-cyan); }
+    html.exe-dark-mode #siteNav a {
+        color: var(--ink);
+        background: transparent;
+    }
+    html.exe-dark-mode #siteNav a.active {
+        background: var(--sp-magenta);
+        color: var(--sp-white);
+    }
+    html.exe-dark-mode #siteNav a:hover,
+    html.exe-dark-mode #siteNav a:focus {
+        background: var(--sp-blue);
+        color: var(--sp-white);
+    }
+    html.exe-dark-mode #siteNav a button { filter: invert(1); }
+    html.exe-dark-mode #siteNav a.highlighted-link {
+        background: var(--sp-yellow);
+        color: var(--sp-black);
+    }
+    html.exe-dark-mode #siteNav a.highlighted-link:hover,
+    html.exe-dark-mode #siteNav a.highlighted-link:focus {
+        background: var(--sp-cyan);
+        color: var(--sp-black);
+    }
+
+    /* Sun → moon: swap the icon when dark mode is active */
+    html.exe-dark-mode #darkModeToggler,
+    html.exe-dark-mode .exe-web-site #darkModeToggler {
+        background-color: var(--sp-cyan);
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000' stroke='%23000' stroke-width='1.5' stroke-linejoin='round'><path d='M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z'/></svg>");
+    }
+
+    /* Breadcrumbs stay legible */
+    html.exe-dark-mode #siteBreadcrumbs { color: var(--ink); }
+    html.exe-dark-mode #siteBreadcrumbs a { color: var(--sp-cyan); }
+
+    /* Made-with-eXe badge */
+    html.exe-dark-mode #made-with-eXe a { filter: invert(100%) hue-rotate(180deg); opacity: 1; }
+    html.exe-dark-mode #packageLicense.cc { filter: invert(1) hue-rotate(180deg); }
+    html.exe-dark-mode #packageLicense.cc a { color: var(--sp-yellow); }
+
+    /* Accessibility toolbar */
+    html.exe-dark-mode #eXeAtoolsBtnSet,
+    html.exe-dark-mode #eXeAtoolsSet {
+        filter: invert(94%) hue-rotate(180deg);
+        box-shadow: var(--sp-cyan) 0 0 2px;
+    }
+}
+
+@media (min-width: 768px) {
+    html.exe-dark-mode .nav-buttons a:hover,
+    html.exe-dark-mode .nav-buttons a:focus {
+        background: var(--sp-magenta);
+        border-color: var(--sp-yellow);
+    }
+}
+
+/* -------------------------------------------------------------------------
+   CRT scanlines — toggleable independently of dark mode.
+   The overlay is opt-in: body gets .spectrum-scanlines via style.js
+   (or via tweaks panel).
+   ------------------------------------------------------------------------- */
+@media screen {
+    body.spectrum-scanlines::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+        background: repeating-linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.16) 0,
+            rgba(0, 0, 0, 0.16) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+        mix-blend-mode: multiply;
+    }
+    /* Subtle vignette in dark mode to sell the CRT look */
+    html.exe-dark-mode body.spectrum-scanlines::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9998;
+        background: radial-gradient(
+            ellipse at center,
+            transparent 60%,
+            rgba(0, 0, 0, 0.45) 100%
+        );
+    }
+}
+@media print {
+    body.spectrum-scanlines::before,
+    body.spectrum-scanlines::after { display: none; }
+}
+
+/* -------------------------------------------------------------------------
+   Tweaks panel — triggered by #spectrumTweaksToggler.
+   Floats over the page; all state stored in localStorage.
+   ------------------------------------------------------------------------- */
+#spectrumTweaks {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 280px;
+    background: var(--sp-black);
+    color: var(--sp-white);
+    border: 2px solid var(--sp-cyan);
+    font-family: var(--font-pixel);
+    z-index: 200;
+    box-shadow: 6px 6px 0 var(--sp-magenta);
+    display: none;
+}
+#spectrumTweaks.open { display: block; }
+#spectrumTweaks .tw-head {
+    background: var(--sp-blue);
+    color: var(--sp-white);
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    border-bottom: 2px solid var(--sp-cyan);
+    letter-spacing: 0.5px;
+}
+#spectrumTweaks .tw-close {
+    background: transparent;
+    border: 1px solid var(--sp-white);
+    color: var(--sp-white);
+    font-family: var(--font-pixel);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 8px;
+    line-height: 1.2;
+}
+#spectrumTweaks .tw-close:hover,
+#spectrumTweaks .tw-close:focus {
+    background: var(--sp-white);
+    color: var(--sp-blue);
+}
+#spectrumTweaks .tw-body {
+    padding: 12px 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 16px;
+}
+#spectrumTweaks .tw-row { display: flex; flex-direction: column; gap: 4px; }
+#spectrumTweaks .tw-label {
+    color: var(--sp-yellow);
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+#spectrumTweaks .tw-segs { display: flex; gap: 4px; flex-wrap: wrap; }
+#spectrumTweaks .tw-seg {
+    flex: 1 1 auto;
+    background: transparent;
+    color: var(--sp-white);
+    border: 1px solid var(--sp-cyan);
+    font-family: var(--font-pixel);
+    font-size: 15px;
+    padding: 3px 8px 1px;
+    cursor: pointer;
+    text-align: center;
+    min-width: 60px;
+    letter-spacing: 0.5px;
+    text-transform: lowercase;
+}
+#spectrumTweaks .tw-seg:hover:not(.on) { background: var(--sp-blue); }
+#spectrumTweaks .tw-seg.on {
+    background: var(--sp-magenta);
+    border-color: var(--sp-magenta);
+    color: var(--sp-white);
+}
+
+/* -------------------------------------------------------------------------
+   In-editor (eXeLearning workarea) overrides
+   ------------------------------------------------------------------------- */
+#workarea .box-head {
+    border: 2px solid var(--border) !important;
+    margin-bottom: 10px;
+}

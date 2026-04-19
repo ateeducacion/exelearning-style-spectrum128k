@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <name>spectrum128k</name>
+    <title>Spectrum 128K</title>
+    <version>2026</version>
+    <compatibility>3.0</compatibility>
+    <author>Área de Tecnología Educativa · Consejería de Educación, FP y Actividad Física del Gobierno de Canarias</author>
+    <license>Creative Commons BY-SA 4.0</license>
+    <license-url>http://creativecommons.org/licenses/by-sa/4.0/</license-url>
+    <description>Un estilo retro inspirado en la estética del Sinclair ZX Spectrum 128K: franjas multicolor, paleta BRIGHT, tipografía pixel y un sutil efecto CRT. Pensado para unidades didácticas que quieran transmitir calidez, nostalgia y lenguaje visual del cómputo doméstico de los 80.
+
+VT323 Font, by Peter Hull, under the SIL Open Font License, Version 1.1.
+
+JetBrains Mono Font, by JetBrains, under the SIL Open Font License, Version 1.1.
+
+iDevice icons by Google (https://fonts.google.com/icons), under the 2.0 version of the Apache License (https://www.apache.org/licenses/LICENSE-2.0.html).</description>
+    <downloadable>1</downloadable>
+</theme>
