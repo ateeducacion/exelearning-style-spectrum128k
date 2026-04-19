@@ -1513,7 +1513,8 @@ button#searchBarTogger { display: none; }
 /* Invert the dark icons on the pencil/move/3-dot buttons so they're legible
    on the blue header. The icons use mask-image or img src with dark ink. */
 #workarea .box-head .btn-edit-title,
-#workarea .box-head .box_actions .btn-action-menu {
+#workarea .box-head .box_actions .btn-action-menu,
+#workarea .box-head .box_actions .exe-actions-menu > button {
     color: var(--sp-white) !important;
     background: transparent !important;
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
@@ -1524,16 +1525,25 @@ button#searchBarTogger { display: none; }
     background: rgba(255, 255, 255, 0.18) !important;
     border-color: var(--sp-white) !important;
 }
+/* Icons on the action buttons live inside .small-icon and are either <img>,
+   mask-image or currentColor SVG. Invert the dark sprite into white. */
 #workarea .box-head .btn-edit-title .small-icon,
-#workarea .box-head .box_actions > .exe-actions-menu .small-icon {
-    filter: invert(1) brightness(1.2);
+#workarea .box-head .box_actions .exe-actions-menu > button .small-icon {
+    filter: invert(1) brightness(1.25) !important;
 }
-#workarea .box-head .box_actions { position: relative; z-index: 2; margin-right: 36px; }
+#workarea .box-head .box_actions {
+    position: relative;
+    z-index: 3;
+    margin-right: 36px;
+}
 
 /* Dropdown menu items land on the standard light Bootstrap surface — keep
-   their icons uninverted and text dark so they're readable. */
-#workarea .box-head .dropdown-menu {
-    z-index: 1080;
+   their icons uninverted and text dark so they're readable. Float the menu
+   above both the rainbow ribbon and the blue header. */
+#workarea .box-head .dropdown-menu,
+#workarea .box-head .exe-actions-menu .dropdown-menu {
+    z-index: 2000 !important;
+    position: absolute;
 }
 #workarea .box-head .dropdown-menu .dropdown-item {
     color: var(--ink) !important;
