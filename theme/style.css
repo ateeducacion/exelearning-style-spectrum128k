@@ -1540,12 +1540,12 @@ body.spectrum-loading > *:not(.spectrum-loader) { visibility: hidden; }
 .spectrum-loader .sp-screen {
     background: #00009c; /* Spectrum paper blue */
     color: #ffffff;
-    padding: 32px 36px;
-    width: min(560px, 82vw);
-    min-height: clamp(220px, 60vh, 340px);
+    padding: 44px 52px;
+    width: min(820px, 90vw);
+    min-height: clamp(360px, 72vh, 560px);
     border: 3px solid #ffffff;
     box-shadow: 0 0 0 3px #000000, 6px 6px 0 3px #000000;
-    font-size: clamp(18px, 3.4vw, 28px);
+    font-size: clamp(20px, 3.6vw, 32px);
     line-height: 1.25;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -1574,9 +1574,9 @@ body.spectrum-loading > *:not(.spectrum-loader) { visibility: hidden; }
 
 @media (max-width: 575.98px) {
     .spectrum-loader .sp-screen {
-        width: 86vw;
-        min-height: 50vh;
-        padding: 22px 20px;
+        width: 92vw;
+        min-height: 76vh;
+        padding: 30px 26px;
     }
 }
 
