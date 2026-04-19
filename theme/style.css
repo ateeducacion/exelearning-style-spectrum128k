@@ -1434,3 +1434,47 @@ button#searchBarTogger { display: none; }
     border: 2px solid var(--border) !important;
     margin-bottom: 10px;
 }
+/* The exported stylesheet sets .box-title color only inside .exe-export, so in
+   the editor the title renders dark-on-dark-blue. Force white + pixel font. */
+#workarea .box-head .box-title,
+#workarea .box-head .content-editable-title,
+#workarea .box-head .content-editable-title [contenteditable] {
+    color: var(--sp-white);
+    font-family: var(--font-pixel);
+    font-size: 1.55em;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    padding-top: 4px;
+}
+/* The edit-title pencil, move-up/move-down arrows and 3-dot menu button use
+   dark SVG/mask icons that disappear on the dark-blue header. Invert them. */
+#workarea .box-head .btn-edit-title,
+#workarea .box-head .box_actions .btn-action-menu {
+    color: var(--sp-white);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 0;
+}
+#workarea .box-head .btn-edit-title:hover,
+#workarea .box-head .box_actions .btn-action-menu:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--sp-white);
+}
+#workarea .box-head .btn-edit-title .small-icon,
+#workarea .box-head .box_actions .small-icon {
+    filter: invert(1) brightness(1.2);
+}
+/* Keep the rainbow ribbon from covering the action buttons. */
+#workarea .box-head .box_actions {
+    position: relative;
+    z-index: 2;
+    margin-right: 68px;
+}
+/* Dropdown menu items stay on a light surface — restore their default ink. */
+#workarea .box-head .dropdown-menu .dropdown-item {
+    color: var(--ink);
+}
+#workarea .box-head .dropdown-menu .dropdown-item .small-icon {
+    filter: none;
+}

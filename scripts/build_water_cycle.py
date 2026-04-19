@@ -272,25 +272,35 @@ def action_buttons_html() -> str:
     </p>'''
 
 
-def illustration_html(image_name: str, caption: str) -> str:
+def illustration_html(idev_id: str, image_name: str, caption: str) -> str:
+    # Use '{{context_path}}/<ideviceId>/<file>' so eXeLearning registers the
+    # image in its media library on import. On export the placeholder is
+    # resolved to the correct relative path.
     return (
         f'<figure style="text-align:center;margin:10px 0 18px;">'
-        f'<img src="content/resources/{image_name}" alt="{h(caption)}" '
-        f'style="max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;" />'
+        f'<img src="{{{{context_path}}}}/{idev_id}/{image_name}" alt="{h(caption)}" '
+        f'style="max-width:320px;width:100%;height:auto;image-rendering:pixelated;border:3px solid #D700D7;" />'
         f'<figcaption style="font-family:\'VT323\',monospace;font-size:16px;color:#707078;margin-top:6px;">{h(caption)}</figcaption>'
         f'</figure>'
     )
 
 
+# Mapping of ideviceId → {filename: src_path}. Populated while building pages,
+# consumed when copying files into content/resources/<ideviceId>/.
+IMAGE_BINDINGS: dict[str, str] = {}
+
+
 def page_intro() -> str:
     pid = nid()
     bid = nid()
+    idv = nid()
+    IMAGE_BINDINGS[idv] = '01-inicio.png'
     two_col = (
         '<div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">'
-        '<div style="flex:0 0 280px;max-width:300px;">'
-        '<img src="content/resources/01-inicio.png" '
+        '<div style="flex:0 0 240px;max-width:260px;">'
+        f'<img src="{{{{context_path}}}}/{idv}/01-inicio.png" '
         'alt="Paisaje del ciclo del agua en estilo ZX Spectrum" '
-        'style="width:100%;image-rendering:pixelated;border:3px solid #D700D7;display:block;" />'
+        'style="width:100%;max-width:240px;image-rendering:pixelated;border:3px solid #D700D7;display:block;" />'
         '</div>'
         '<div style="flex:1 1 280px;min-width:0;">'
         '<p><strong>Bienvenido</strong> a esta unidad didáctica sobre el <em>ciclo del agua</em>, preparada por el <strong>Área de Tecnología Educativa</strong> de la Consejería de Educación, Formación Profesional, Actividad Física y Deportes del Gobierno de Canarias.</p>'
@@ -299,7 +309,7 @@ def page_intro() -> str:
         '</div>'
         '</div>'
     )
-    comp = text_idevice(pid, bid, nid(), 1, '', two_col + action_buttons_html())
+    comp = text_idevice(pid, bid, idv, 1, '', two_col + action_buttons_html())
     return nav_page(pid, '', 'Inicio', 1,
                     block(pid, bid, 1, comp, icon='book', block_name='Bienvenida'))
 
@@ -307,14 +317,16 @@ def page_intro() -> str:
 def page_que_es() -> str:
     pid = nid()
     bid = nid()
-    comp1 = text_idevice(pid, bid, nid(), 1,
+    idv1 = nid()
+    IMAGE_BINDINGS[idv1] = '02-el-ciclo-del-agua.png'
+    comp1 = text_idevice(pid, bid, idv1, 1,
         '',
-        illustration_html('02-el-ciclo-del-agua.png', 'Esquema general del ciclo del agua') +
+        illustration_html(idv1, '02-el-ciclo-del-agua.png', 'Esquema general del ciclo del agua') +
         '''<p>El <strong>ciclo del agua</strong>, también llamado <em>ciclo hidrológico</em>, es el proceso por el cual el agua circula continuamente entre la atmósfera, la superficie terrestre y los océanos.</p>
         <p>Esta circulación incesante es la que hace posible la vida en el planeta: sin ella no habría lluvia, ríos ni vegetación.</p>''')
     bid2 = nid()
     comp2 = text_idevice(pid, bid2, nid(), 2,
-        '',
+        '',  # (second idevice on the page has no image)
         '''<p><strong>Las cuatro fases principales son:</strong></p>
         <ol>
           <li><strong>Evaporación:</strong> el agua líquida se convierte en vapor.</li>
@@ -328,13 +340,17 @@ def page_que_es() -> str:
                     + block(pid, bid2, 2, comp2, icon='objectives', block_name='Las cuatro fases'))
 
 
-def subpage(title: str, parent_id: str, order: int, paragraphs: list[str],
+def subpage(title: str, parent_id: str, order: int,
+            image_name: str, caption: str,
+            paragraphs: list[str],
             footer_paragraphs: list[str] = None, icon: str = 'draw',
             block_name: str = 'Lápiz') -> str:
     pid = nid()
     bid = nid()
-    body = ''.join(paragraphs)
-    comp = text_idevice(pid, bid, nid(), 1, '', body)
+    idv = nid()
+    IMAGE_BINDINGS[idv] = image_name
+    body = illustration_html(idv, image_name, caption) + ''.join(paragraphs)
+    comp = text_idevice(pid, bid, idv, 1, '', body)
     blocks_str = block(pid, bid, 1, comp, icon=icon, block_name=block_name)
     if footer_paragraphs:
         bid2 = nid()
@@ -347,8 +363,10 @@ def subpage(title: str, parent_id: str, order: int, paragraphs: list[str],
 def page_activities(parent_ids: dict) -> tuple[str, str]:
     pid = nid()
     bid = nid()
-    intro = text_idevice(pid, bid, nid(), 1, '',
-        illustration_html('07-actividades.png', 'Vamos a poner a prueba lo aprendido') +
+    idv = nid()
+    IMAGE_BINDINGS[idv] = '07-actividades.png'
+    intro = text_idevice(pid, bid, idv, 1, '',
+        illustration_html(idv, '07-actividades.png', 'Vamos a poner a prueba lo aprendido') +
         '''<p>Pon a prueba lo aprendido con las dos actividades de las subpáginas.</p>
         <p>En la primera deberás <strong>ordenar</strong> las fases del ciclo. En la segunda decidirás si varias afirmaciones son <strong>verdaderas o falsas</strong>.</p>''')
     return pid, nav_page(pid, '', 'Actividades', 3,
@@ -359,8 +377,10 @@ def page_activities(parent_ids: dict) -> tuple[str, str]:
 def page_activity_order(parent_id: str) -> str:
     pid = nid()
     bid = nid()
-    intro = text_idevice(pid, bid, nid(), 1, '',
-        illustration_html('08-ordena-las-fases.png', 'Ordena las cuatro fases del ciclo') +
+    idv = nid()
+    IMAGE_BINDINGS[idv] = '08-ordena-las-fases.png'
+    intro = text_idevice(pid, bid, idv, 1, '',
+        illustration_html(idv, '08-ordena-las-fases.png', 'Ordena las cuatro fases del ciclo') +
         '<p>Arrastra cada paso hasta dejar las fases en el <strong>orden natural</strong> en el que se producen.</p>')
     bid2 = nid()
     act = scrambled_idevice(
@@ -381,8 +401,10 @@ def page_activity_order(parent_id: str) -> str:
 def page_activity_tof(parent_id: str) -> str:
     pid = nid()
     bid = nid()
-    intro = text_idevice(pid, bid, nid(), 1, '',
-        illustration_html('09-verdadero-o-falso.png', 'Decide si cada afirmación es verdadera o falsa') +
+    idv = nid()
+    IMAGE_BINDINGS[idv] = '09-verdadero-o-falso.png'
+    intro = text_idevice(pid, bid, idv, 1, '',
+        illustration_html(idv, '09-verdadero-o-falso.png', 'Decide si cada afirmación es verdadera o falsa') +
         '<p>Lee cada afirmación y decide si es <strong>verdadera</strong> o <strong>falsa</strong>.</p>')
     bid2 = nid()
     act = trueorfalse_idevice(
@@ -407,8 +429,10 @@ def page_activity_tof(parent_id: str) -> str:
 def page_credits() -> str:
     pid = nid()
     bid = nid()
-    intro = text_idevice(pid, bid, nid(), 1, '',
-        illustration_html('11-creditos-y-descargas.png', 'Créditos y descargas') +
+    idv = nid()
+    IMAGE_BINDINGS[idv] = '11-creditos-y-descargas.png'
+    intro = text_idevice(pid, bid, idv, 1, '',
+        illustration_html(idv, '11-creditos-y-descargas.png', 'Créditos y descargas') +
         '''<p>Esta unidad de ejemplo ha sido creada por el <strong>Área de Tecnología Educativa</strong> de la Consejería de Educación, Formación Profesional, Actividad Física y Deportes del <strong>Gobierno de Canarias</strong>, para mostrar el estilo <em>Spectrum 128K</em>.</p>
         <p><strong>Agradecimientos:</strong> comunidad de <a href="https://exelearning.net/" target="_blank" rel="noopener">eXeLearning</a>, mantenida por el <a href="https://cedec.intef.es/" target="_blank" rel="noopener">CEDEC</a> y las diferentes administraciones educativas del Estado.</p>
         <p><strong>Licencia:</strong> Creative Commons Reconocimiento-CompartirIgual 4.0 (CC BY-SA 4.0). Puedes reutilizar este recurso siempre que cites a su autor y lo publiques bajo la misma licencia.</p>''' +
@@ -423,8 +447,10 @@ def page_credits() -> str:
 def page_resources() -> str:
     pid = nid()
     bid = nid()
-    body = text_idevice(pid, bid, nid(), 1, '',
-        illustration_html('10-recursos.png', 'Enlaces para seguir aprendiendo') +
+    idv = nid()
+    IMAGE_BINDINGS[idv] = '10-recursos.png'
+    body = text_idevice(pid, bid, idv, 1, '',
+        illustration_html(idv, '10-recursos.png', 'Enlaces para seguir aprendiendo') +
         '''<p>Estos recursos te ayudarán a profundizar en el ciclo del agua:</p>
         <ul>
           <li><a href="https://es.wikipedia.org/wiki/Ciclo_hidrol%C3%B3gico" target="_blank" rel="noopener">Wikipedia · Ciclo hidrológico</a></li>
@@ -445,27 +471,27 @@ import re as _re
 que_es_pid = _re.search(r'<odePageId>([^<]+)</odePageId>', que_es_xml).group(1)
 
 _evap_pid, evap_xml = subpage('Evaporación', que_es_pid, 1,
-    [illustration_html('03-evaporacion.png', 'El Sol calienta el agua y la transforma en vapor'),
-     '<p>La <strong>evaporación</strong> es la primera fase del ciclo. El calor del Sol transforma el agua líquida de mares, ríos y lagos en <strong>vapor de agua</strong>, que asciende a la atmósfera.</p>',
+    '03-evaporacion.png', 'El Sol calienta el agua y la transforma en vapor',
+    ['<p>La <strong>evaporación</strong> es la primera fase del ciclo. El calor del Sol transforma el agua líquida de mares, ríos y lagos en <strong>vapor de agua</strong>, que asciende a la atmósfera.</p>',
      '<p>Las plantas también aportan vapor mediante un proceso llamado <em>transpiración</em>. La suma de ambos se conoce como <strong>evapotranspiración</strong>.</p>'],
     icon='draw', block_name='El Sol pone el agua en marcha')
 
 _cond_pid, cond_xml = subpage('Condensación', que_es_pid, 2,
-    [illustration_html('04-condensacion.png', 'El vapor se enfría y forma nubes'),
-     '<p>Al subir, el vapor de agua encuentra temperaturas cada vez más frías. Se <strong>condensa</strong> en minúsculas gotas que forman las <strong>nubes</strong>.</p>',
+    '04-condensacion.png', 'El vapor se enfría y forma nubes',
+    ['<p>Al subir, el vapor de agua encuentra temperaturas cada vez más frías. Se <strong>condensa</strong> en minúsculas gotas que forman las <strong>nubes</strong>.</p>',
      '<p>Cuando las gotas se agrupan y crecen, se vuelven demasiado pesadas para flotar y darán paso a la siguiente fase.</p>'],
     icon='draw', block_name='Del vapor a las nubes')
 
 _prec_pid, prec_xml = subpage('Precipitación', que_es_pid, 3,
-    [illustration_html('05-precipitacion.png', 'Lluvia, nieve y granizo caen desde las nubes'),
-     '<p>La <strong>precipitación</strong> es la caída del agua desde las nubes hasta la superficie terrestre. Puede adoptar forma de:</p>',
+    '05-precipitacion.png', 'Lluvia, nieve y granizo caen desde las nubes',
+    ['<p>La <strong>precipitación</strong> es la caída del agua desde las nubes hasta la superficie terrestre. Puede adoptar forma de:</p>',
      '<ul><li><strong>Lluvia</strong>, si las gotas caen líquidas.</li><li><strong>Nieve</strong>, si se congelan formando cristales.</li><li><strong>Granizo</strong>, si se forman bolitas de hielo.</li></ul>',
      '<p>En regiones frías, buena parte del agua queda almacenada en <em>glaciares</em> y neveros durante siglos.</p>'],
     icon='draw', block_name='Lluvia, nieve y granizo')
 
 _rec_pid, rec_xml = subpage('Recogida', que_es_pid, 4,
-    [illustration_html('06-recogida.png', 'Ríos, lagos y océanos recogen el agua que vuelve'),
-     '<p>El agua de lluvia y nieve fluye por la superficie formando arroyos, ríos y embalses. Parte se filtra en el terreno creando <strong>acuíferos</strong> subterráneos.</p>',
+    '06-recogida.png', 'Ríos, lagos y océanos recogen el agua que vuelve',
+    ['<p>El agua de lluvia y nieve fluye por la superficie formando arroyos, ríos y embalses. Parte se filtra en el terreno creando <strong>acuíferos</strong> subterráneos.</p>',
      '<p>Tarde o temprano, toda esa agua regresa al océano y el ciclo vuelve a comenzar.</p>',
      '<p><em>Y así, gota a gota, el agua ha estado circulando por la Tierra desde hace miles de millones de años.</em></p>'],
     icon='draw', block_name='El agua vuelve al mar')
@@ -524,14 +550,21 @@ os.makedirs(out_root)
 with open(os.path.join(out_root, 'content.xml'), 'w', encoding='utf-8') as f:
     f.write(root)
 
-# Copy illustrations into content/resources
+# Copy illustrations into content/resources/<ideviceId>/<filename>.
+# eXeLearning only registers images in the media library when they live under
+# a folder named after the owning iDevice id (matching the
+# '{{context_path}}/<ideviceId>/<filename>' references in content.xml).
 images_src = '/Users/ernesto/Downloads/git/exelearning-style-spectrum128k/imagenes-generadas'
 images_dst = os.path.join(out_root, 'content', 'resources')
 os.makedirs(images_dst, exist_ok=True)
-if os.path.isdir(images_src):
-    for fn in os.listdir(images_src):
-        if fn.lower().endswith('.png'):
-            shutil.copy(os.path.join(images_src, fn), os.path.join(images_dst, fn))
+for idev, fn in IMAGE_BINDINGS.items():
+    src = os.path.join(images_src, fn)
+    if not os.path.exists(src):
+        print(f'WARN: missing {src}')
+        continue
+    sub = os.path.join(images_dst, idev)
+    os.makedirs(sub, exist_ok=True)
+    shutil.copy(src, os.path.join(sub, fn))
 
 # Zip as .elp (ZIP of content.xml + resources)
 elp_path = '/tmp/water-cycle.elp'
