@@ -1550,12 +1550,14 @@ body.spectrum-loading > *:not(.spectrum-loader) { visibility: hidden; }
 .spectrum-loader .sp-screen {
     background: #00009c; /* Spectrum paper blue */
     color: #ffffff;
-    padding: 44px 52px;
-    width: min(820px, 90vw);
-    min-height: clamp(360px, 72vh, 560px);
+    padding: 52px 60px;
+    /* Native Spectrum SCREEN$ is 256x192 → 4:3. Sized to the limiting
+       viewport dimension so the rectangle grows while keeping ratio. */
+    width: min(900px, 92vw, calc(92vh * 4 / 3));
+    aspect-ratio: 4 / 3;
     border: 3px solid #ffffff;
     box-shadow: 0 0 0 3px #000000, 6px 6px 0 3px #000000;
-    font-size: clamp(20px, 3.6vw, 32px);
+    font-size: clamp(22px, 3.8vw, 36px);
     line-height: 1.25;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -1584,8 +1586,7 @@ body.spectrum-loading > *:not(.spectrum-loader) { visibility: hidden; }
 
 @media (max-width: 575.98px) {
     .spectrum-loader .sp-screen {
-        width: 92vw;
-        min-height: 76vh;
+        width: min(94vw, calc(78vh * 4 / 3));
         padding: 30px 26px;
     }
 }
