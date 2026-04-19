@@ -17,6 +17,8 @@ var eXeSpectrum128kStyle = {
         if (this.inIframe()) $('body').addClass('in-iframe');
         // Apply persisted tweaks before any UI shows up to avoid a flash.
         this.tweaks.applyAll();
+        // Tape-load intro: once per browsing session, skipped inside the editor iframe.
+        if (!this.inIframe()) this.loader.autoShowOnce();
         var togglers = '';
         if (this.isLocalStorageAvailable()) {
             togglers =
@@ -157,6 +159,76 @@ var eXeSpectrum128kStyle = {
     },
 
     /* ---------------------------------------------------------------
+       Tape-load intro. Replays the classic ZX Spectrum loading screen —
+       flickering horizontal stripes on top/bottom, blue paper in the
+       middle, text revealed line by line. Auto-plays once per browsing
+       session (sessionStorage flag) and can be replayed from the
+       tweaks panel.
+       --------------------------------------------------------------- */
+    loader: {
+        STORAGE_KEY: 'exeSpectrumLoaderShown',
+        autoShowOnce: function () {
+            try {
+                if (sessionStorage.getItem(this.STORAGE_KEY)) return;
+                sessionStorage.setItem(this.STORAGE_KEY, '1');
+            } catch (e) { /* private mode: just show */ }
+            this.show();
+        },
+        show: function () {
+            var prev = document.getElementById('spectrumLoader');
+            if (prev) prev.parentNode.removeChild(prev);
+            var root = document.createElement('div');
+            root.id = 'spectrumLoader';
+            root.className = 'spectrum-loader phase-pilot';
+            root.setAttribute('role', 'status');
+            root.setAttribute('aria-label', 'Cargando');
+            root.innerHTML =
+                '<div class="sp-screen">' +
+                    '<div class="sp-line sp-copy">&copy; 1982 Sinclair Research Ltd</div>' +
+                    '<div class="sp-line sp-title">eXeLearning 128K</div>' +
+                    '<div class="sp-spacer"></div>' +
+                    '<div class="sp-line sp-hidden" data-step="1">Bytes: cargando <span class="sp-hl">exe-paquete</span> ...</div>' +
+                    '<div class="sp-line sp-hidden" data-step="2"><span class="sp-ok">OK, 0:1</span></div>' +
+                    '<div class="sp-line sp-hidden" data-step="3">LOAD &quot;&quot;<span class="sp-cursor"></span></div>' +
+                '</div>';
+            document.body.appendChild(root);
+            document.body.classList.add('spectrum-loading');
+            var reveal = function (n) {
+                var el = root.querySelector('[data-step="' + n + '"]');
+                if (el) el.classList.remove('sp-hidden');
+            };
+            var timers = [];
+            timers.push(setTimeout(function () { reveal(1); }, 600));
+            timers.push(setTimeout(function () {
+                root.classList.remove('phase-pilot');
+                root.classList.add('phase-data');
+                reveal(2);
+            }, 1300));
+            timers.push(setTimeout(function () { reveal(3); }, 2200));
+            timers.push(setTimeout(function () {
+                root.classList.add('fading');
+                setTimeout(function () {
+                    if (root.parentNode) root.parentNode.removeChild(root);
+                    document.body.classList.remove('spectrum-loading');
+                }, 600);
+            }, 3600));
+            // Let Escape / click dismiss early.
+            var dismiss = function () {
+                timers.forEach(clearTimeout);
+                root.classList.add('fading');
+                setTimeout(function () {
+                    if (root.parentNode) root.parentNode.removeChild(root);
+                    document.body.classList.remove('spectrum-loading');
+                }, 300);
+                document.removeEventListener('keydown', onKey);
+            };
+            var onKey = function (e) { if (e.key === 'Escape') dismiss(); };
+            root.addEventListener('click', dismiss);
+            document.addEventListener('keydown', onKey);
+        },
+    },
+
+    /* ---------------------------------------------------------------
        Tweaks panel — scanlines / stripe preset / pixel-everywhere.
        State is persisted in localStorage under `exeSpectrumTweaks`.
        --------------------------------------------------------------- */
@@ -256,6 +328,12 @@ var eXeSpectrum128kStyle = {
                 '<button class="tw-seg" data-value="all">todo el texto</button>' +
                 '</div>' +
                 '</div>' +
+                '<div class="tw-row">' +
+                '<div class="tw-label">pantalla de carga</div>' +
+                '<div class="tw-segs">' +
+                '<button class="tw-seg tw-replay-loader" type="button">reproducir</button>' +
+                '</div>' +
+                '</div>' +
                 '</div>';
             document.body.appendChild(panel);
             // Paint current selections.
@@ -271,6 +349,11 @@ var eXeSpectrum128kStyle = {
             });
             $(panel).on('click', '.tw-close', function () {
                 panel.classList.remove('open');
+            });
+            $(panel).on('click', '.tw-replay-loader', function (e) {
+                e.stopPropagation();
+                panel.classList.remove('open');
+                eXeSpectrum128kStyle.loader.show();
             });
             $('#spectrumTweaksToggler').on('click', function () {
                 panel.classList.toggle('open');

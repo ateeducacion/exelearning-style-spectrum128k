@@ -1493,6 +1493,94 @@ button#searchBarTogger { display: none; }
 }
 
 /* -------------------------------------------------------------------------
+   Tape-load intro overlay (ZX Spectrum "loading" mimic)
+   Horizontal stripes on top/bottom borders; blue paper screen in the middle
+   with VT323 text that reveals line-by-line. Keep this self-contained so it
+   can mount on any page without fighting with the rest of the theme.
+   ------------------------------------------------------------------------- */
+body.spectrum-loading { overflow: hidden; }
+body.spectrum-loading > *:not(.spectrum-loader) { visibility: hidden; }
+
+.spectrum-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: var(--font-pixel, "VT323", ui-monospace, monospace);
+    transition: opacity 0.4s ease;
+    visibility: visible !important;
+    /* Pilot tone: red / cyan horizontal bands wrap the entire viewport so
+       they surround the central "screen" on all four sides. */
+    background-image: repeating-linear-gradient(
+        to bottom,
+        #d71919 0 4px,
+        #19d7d7 4px 8px
+    );
+    animation: sp-load-flick 0.08s steps(2) infinite;
+}
+.spectrum-loader.fading { opacity: 0; pointer-events: none; }
+
+/* Data phase: yellow / blue fast flicker. */
+.spectrum-loader.phase-data {
+    background-image: repeating-linear-gradient(
+        to bottom,
+        #d7d719 0 3px,
+        #1919d7 3px 6px
+    );
+    animation-duration: 0.05s;
+}
+@keyframes sp-load-flick {
+    from { background-position: 0 0; }
+    to   { background-position: 0 8px; }
+}
+
+.spectrum-loader .sp-screen {
+    background: #00009c; /* Spectrum paper blue */
+    color: #ffffff;
+    padding: 32px 36px;
+    width: min(560px, 82vw);
+    min-height: clamp(220px, 60vh, 340px);
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 0 3px #000000, 6px 6px 0 3px #000000;
+    font-size: clamp(18px, 3.4vw, 28px);
+    line-height: 1.25;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.spectrum-loader .sp-line { margin: 0 0 6px; }
+.spectrum-loader .sp-line.sp-hidden { visibility: hidden; }
+.spectrum-loader .sp-spacer { flex: 0 0 16px; }
+.spectrum-loader .sp-copy  { color: #ffff00; }
+.spectrum-loader .sp-title { color: #ffffff; font-size: 1.15em; }
+.spectrum-loader .sp-hl    { color: #ffff00; }
+.spectrum-loader .sp-ok    { color: #19d719; }
+
+.spectrum-loader .sp-cursor {
+    display: inline-block;
+    width: 0.55ch;
+    height: 0.9em;
+    margin-left: 2px;
+    background: currentColor;
+    vertical-align: -0.08em;
+    animation: sp-caret 0.55s steps(2) infinite;
+}
+@keyframes sp-caret { 50% { opacity: 0; } }
+
+@media (max-width: 575.98px) {
+    .spectrum-loader .sp-screen {
+        width: 86vw;
+        min-height: 50vh;
+        padding: 22px 20px;
+    }
+}
+
+/* -------------------------------------------------------------------------
    In-editor (eXeLearning workarea) overrides
    ------------------------------------------------------------------------- */
 #workarea .box-head {
