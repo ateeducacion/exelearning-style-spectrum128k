@@ -10,11 +10,11 @@
 <odeResources>
   <odeResource>
     <key>odeId</key>
-    <value>20260419121407H3YQU7</value>
+    <value>20260419123112DMKJ1Z</value>
   </odeResource>
   <odeResource>
     <key>odeVersionId</key>
-    <value>20260419121407H7AI8K</value>
+    <value>20260419123112YZ6A9P</value>
   </odeResource>
   <odeResource>
     <key>exe_version</key>
@@ -44,7 +44,7 @@
   </odeProperty>
   <odeProperty>
     <key>pp_modified</key>
-    <value>2026-04-19T11:14:06.957Z</value>
+    <value>2026-04-19T11:31:12.532Z</value>
   </odeProperty>
   <odeProperty>
     <key>pp_addExeLink</key>
@@ -77,7 +77,7 @@
 </odeProperties>
 <odeNavStructures>
 <odeNavStructure>
-  <odePageId>page-mo5o4p1y-1sa0s95wd</odePageId>
+  <odePageId>page-mo5oqoel-2p2mblkd2</odePageId>
   <odeParentPageId></odeParentPageId>
   <pageName>Inicio</pageName>
   <odeNavStructureOrder>0</odeNavStructureOrder>
@@ -121,7 +121,7 @@
   </odeNavStructureProperties>
   <odePagStructures>
     <odePagStructure>
-      <odePageId>page-mo5o4p1y-1sa0s95wd</odePageId>
+      <odePageId>page-mo5oqoel-2p2mblkd2</odePageId>
       <odeBlockId>SP00000002</odeBlockId>
       <blockName>Bienvenida</blockName>
       <iconName>book</iconName>
@@ -150,15 +150,23 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p1y-1sa0s95wd</odePageId>
+          <odePageId>page-mo5oqoel-2p2mblkd2</odePageId>
           <odeBlockId>SP00000002</odeBlockId>
           <odeIdeviceId>SP00000003</odeIdeviceId>
           <odeIdeviceTypeName>text</odeIdeviceTypeName>
-          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><p><strong>Bienvenido</strong> a esta unidad didáctica sobre el <em>ciclo del agua</em>, preparada por el <strong>Área de Tecnología Educativa</strong> de la Consejería de Educación, FP y Actividad Física del Gobierno de Canarias.</p>
+          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><figure style="text-align:center;margin:10px 0 18px;"><img src="content/resources/01-inicio.png" alt="Paisaje del ciclo del agua en estilo ZX Spectrum" style="max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;" /><figcaption style="font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;">Paisaje del ciclo del agua en estilo ZX Spectrum</figcaption></figure><p><strong>Bienvenido</strong> a esta unidad didáctica sobre el <em>ciclo del agua</em>, preparada por el <strong>Área de Tecnología Educativa</strong> de la Consejería de Educación, Formación Profesional, Actividad Física y Deportes del Gobierno de Canarias.</p>
         <p>Aquí aprenderás las cuatro fases principales del ciclo — <strong>evaporación</strong>, <strong>condensación</strong>, <strong>precipitación</strong> y <strong>recogida</strong> — y podrás poner a prueba lo aprendido con un par de actividades.</p>
-        <p style="text-align:center;font-family:monospace;color:#0000A8;">☀️ 💧 ☁️ 🌧️ 🌊 🌳</p>
-        <p>El estilo visual retro está inspirado en la estética del <strong>Sinclair ZX Spectrum 128K</strong>. Activa el modo oscuro con el botón del sol y juega con las franjas y los <em>scanlines</em> desde el engranaje de la derecha.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
-          <jsonProperties><![CDATA[{"ideviceId":"SP00000003","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<p><strong>Bienvenido</strong> a esta unidad didáctica sobre el <em>ciclo del agua</em>, preparada por el <strong>Área de Tecnología Educativa</strong> de la Consejería de Educación, FP y Actividad Física del Gobierno de Canarias.</p>\n        <p>Aquí aprenderás las cuatro fases principales del ciclo — <strong>evaporación</strong>, <strong>condensación</strong>, <strong>precipitación</strong> y <strong>recogida</strong> — y podrás poner a prueba lo aprendido con un par de actividades.</p>\n        <p style=\"text-align:center;font-family:monospace;color:#0000A8;\">☀️ 💧 ☁️ 🌧️ 🌊 🌳</p>\n        <p>El estilo visual retro está inspirado en la estética del <strong>Sinclair ZX Spectrum 128K</strong>. Activa el modo oscuro con el botón del sol y juega con las franjas y los <em>scanlines</em> desde el engranaje de la derecha.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
+        <p>El estilo visual retro está inspirado en la estética del <strong>Sinclair ZX Spectrum 128K</strong>. Activa el modo oscuro con el botón del sol y juega con las franjas y los <em>scanlines</em> desde el engranaje de la derecha.</p><p style="text-align:center;margin-top:22px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+    <a href="https://static.exelearning.dev/?url=https://raw.githubusercontent.com/ateeducacion/exelearning-style-spectrum128k/main/sample/el-ciclo-del-agua-spectrum128k.elpx" target="_blank" rel="noopener"
+       style="display:inline-block;background:#D7D700;color:#000;padding:10px 18px;border:3px solid #000;box-shadow:4px 4px 0 #D700D7;font-family:'VT323',monospace;font-size:22px;text-decoration:none;letter-spacing:0.5px;">
+      ▶ abrir en eXeLearning
+    </a>
+    <a href="https://github.com/ateeducacion/exelearning-style-spectrum128k/releases/latest/download/spectrum128k.zip" target="_blank" rel="noopener"
+       style="display:inline-block;background:#00D7D7;color:#000;padding:10px 18px;border:3px solid #000;box-shadow:4px 4px 0 #D700D7;font-family:'VT323',monospace;font-size:22px;text-decoration:none;letter-spacing:0.5px;">
+      ↓ descargar estilo
+    </a>
+    </p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
+          <jsonProperties><![CDATA[{"ideviceId":"SP00000003","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<figure style=\"text-align:center;margin:10px 0 18px;\"><img src=\"content/resources/01-inicio.png\" alt=\"Paisaje del ciclo del agua en estilo ZX Spectrum\" style=\"max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;\" /><figcaption style=\"font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;\">Paisaje del ciclo del agua en estilo ZX Spectrum</figcaption></figure><p><strong>Bienvenido</strong> a esta unidad didáctica sobre el <em>ciclo del agua</em>, preparada por el <strong>Área de Tecnología Educativa</strong> de la Consejería de Educación, Formación Profesional, Actividad Física y Deportes del Gobierno de Canarias.</p>\n        <p>Aquí aprenderás las cuatro fases principales del ciclo — <strong>evaporación</strong>, <strong>condensación</strong>, <strong>precipitación</strong> y <strong>recogida</strong> — y podrás poner a prueba lo aprendido con un par de actividades.</p>\n        <p>El estilo visual retro está inspirado en la estética del <strong>Sinclair ZX Spectrum 128K</strong>. Activa el modo oscuro con el botón del sol y juega con las franjas y los <em>scanlines</em> desde el engranaje de la derecha.</p><p style=\"text-align:center;margin-top:22px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;\">\n    <a href=\"https://static.exelearning.dev/?url=https://raw.githubusercontent.com/ateeducacion/exelearning-style-spectrum128k/main/sample/el-ciclo-del-agua-spectrum128k.elpx\" target=\"_blank\" rel=\"noopener\"\n       style=\"display:inline-block;background:#D7D700;color:#000;padding:10px 18px;border:3px solid #000;box-shadow:4px 4px 0 #D700D7;font-family:'VT323',monospace;font-size:22px;text-decoration:none;letter-spacing:0.5px;\">\n      ▶ abrir en eXeLearning\n    </a>\n    <a href=\"https://github.com/ateeducacion/exelearning-style-spectrum128k/releases/latest/download/spectrum128k.zip\" target=\"_blank\" rel=\"noopener\"\n       style=\"display:inline-block;background:#00D7D7;color:#000;padding:10px 18px;border:3px solid #000;box-shadow:4px 4px 0 #D700D7;font-family:'VT323',monospace;font-size:22px;text-decoration:none;letter-spacing:0.5px;\">\n      ↓ descargar estilo\n    </a>\n    </p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
           <odeComponentsOrder>1</odeComponentsOrder>
           <odeComponentsProperties>
             <odeComponentsProperty>
@@ -180,7 +188,7 @@
   </odePagStructures>
 </odeNavStructure>
 <odeNavStructure>
-  <odePageId>page-mo5o4p20-rns3qjub3</odePageId>
+  <odePageId>page-mo5oqoem-s9j28xvoe</odePageId>
   <odeParentPageId></odeParentPageId>
   <pageName>El ciclo del agua</pageName>
   <odeNavStructureOrder>1</odeNavStructureOrder>
@@ -224,7 +232,7 @@
   </odeNavStructureProperties>
   <odePagStructures>
     <odePagStructure>
-      <odePageId>page-mo5o4p20-rns3qjub3</odePageId>
+      <odePageId>page-mo5oqoem-s9j28xvoe</odePageId>
       <odeBlockId>SP00000005</odeBlockId>
       <blockName>¿Qué es el ciclo del agua?</blockName>
       <iconName>info</iconName>
@@ -253,13 +261,13 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p20-rns3qjub3</odePageId>
+          <odePageId>page-mo5oqoem-s9j28xvoe</odePageId>
           <odeBlockId>SP00000005</odeBlockId>
           <odeIdeviceId>SP00000006</odeIdeviceId>
           <odeIdeviceTypeName>text</odeIdeviceTypeName>
-          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><p>El <strong>ciclo del agua</strong>, también llamado <em>ciclo hidrológico</em>, es el proceso por el cual el agua circula continuamente entre la atmósfera, la superficie terrestre y los océanos.</p>
+          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><figure style="text-align:center;margin:10px 0 18px;"><img src="content/resources/02-el-ciclo-del-agua.png" alt="Esquema general del ciclo del agua" style="max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;" /><figcaption style="font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;">Esquema general del ciclo del agua</figcaption></figure><p>El <strong>ciclo del agua</strong>, también llamado <em>ciclo hidrológico</em>, es el proceso por el cual el agua circula continuamente entre la atmósfera, la superficie terrestre y los océanos.</p>
         <p>Esta circulación incesante es la que hace posible la vida en el planeta: sin ella no habría lluvia, ríos ni vegetación.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
-          <jsonProperties><![CDATA[{"ideviceId":"SP00000006","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<p>El <strong>ciclo del agua</strong>, también llamado <em>ciclo hidrológico</em>, es el proceso por el cual el agua circula continuamente entre la atmósfera, la superficie terrestre y los océanos.</p>\n        <p>Esta circulación incesante es la que hace posible la vida en el planeta: sin ella no habría lluvia, ríos ni vegetación.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
+          <jsonProperties><![CDATA[{"ideviceId":"SP00000006","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<figure style=\"text-align:center;margin:10px 0 18px;\"><img src=\"content/resources/02-el-ciclo-del-agua.png\" alt=\"Esquema general del ciclo del agua\" style=\"max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;\" /><figcaption style=\"font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;\">Esquema general del ciclo del agua</figcaption></figure><p>El <strong>ciclo del agua</strong>, también llamado <em>ciclo hidrológico</em>, es el proceso por el cual el agua circula continuamente entre la atmósfera, la superficie terrestre y los océanos.</p>\n        <p>Esta circulación incesante es la que hace posible la vida en el planeta: sin ella no habría lluvia, ríos ni vegetación.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
           <odeComponentsOrder>1</odeComponentsOrder>
           <odeComponentsProperties>
             <odeComponentsProperty>
@@ -279,7 +287,7 @@
       </odeComponents>
     </odePagStructure>
     <odePagStructure>
-      <odePageId>page-mo5o4p20-rns3qjub3</odePageId>
+      <odePageId>page-mo5oqoem-s9j28xvoe</odePageId>
       <odeBlockId>SP00000007</odeBlockId>
       <blockName>Las cuatro fases</blockName>
       <iconName>objectives</iconName>
@@ -308,7 +316,7 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p20-rns3qjub3</odePageId>
+          <odePageId>page-mo5oqoem-s9j28xvoe</odePageId>
           <odeBlockId>SP00000007</odeBlockId>
           <odeIdeviceId>SP00000008</odeIdeviceId>
           <odeIdeviceTypeName>text</odeIdeviceTypeName>
@@ -342,8 +350,8 @@
   </odePagStructures>
 </odeNavStructure>
 <odeNavStructure>
-  <odePageId>page-mo5o4p21-kt1qw3psp</odePageId>
-  <odeParentPageId>page-mo5o4p20-rns3qjub3</odeParentPageId>
+  <odePageId>page-mo5oqoem-k3j6gyik0</odePageId>
+  <odeParentPageId>page-mo5oqoem-s9j28xvoe</odeParentPageId>
   <pageName>Evaporación</pageName>
   <odeNavStructureOrder>0</odeNavStructureOrder>
   <odeNavStructureProperties>
@@ -386,7 +394,7 @@
   </odeNavStructureProperties>
   <odePagStructures>
     <odePagStructure>
-      <odePageId>page-mo5o4p21-kt1qw3psp</odePageId>
+      <odePageId>page-mo5oqoem-k3j6gyik0</odePageId>
       <odeBlockId>SP00000010</odeBlockId>
       <blockName>El Sol pone el agua en marcha</blockName>
       <iconName>draw</iconName>
@@ -415,12 +423,12 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p21-kt1qw3psp</odePageId>
+          <odePageId>page-mo5oqoem-k3j6gyik0</odePageId>
           <odeBlockId>SP00000010</odeBlockId>
           <odeIdeviceId>SP00000011</odeIdeviceId>
           <odeIdeviceTypeName>text</odeIdeviceTypeName>
-          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><p>La <strong>evaporación</strong> es la primera fase del ciclo. El calor del Sol transforma el agua líquida de mares, ríos y lagos en <strong>vapor de agua</strong>, que asciende a la atmósfera.</p><p>Las plantas también aportan vapor mediante un proceso llamado <em>transpiración</em>. La suma de ambos se conoce como <strong>evapotranspiración</strong>.</p><p style="text-align:center;font-family:monospace;color:#D7D700;">☀️ ⇒ 💧 ⇒ ☁️</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
-          <jsonProperties><![CDATA[{"ideviceId":"SP00000011","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<p>La <strong>evaporación</strong> es la primera fase del ciclo. El calor del Sol transforma el agua líquida de mares, ríos y lagos en <strong>vapor de agua</strong>, que asciende a la atmósfera.</p><p>Las plantas también aportan vapor mediante un proceso llamado <em>transpiración</em>. La suma de ambos se conoce como <strong>evapotranspiración</strong>.</p><p style=\"text-align:center;font-family:monospace;color:#D7D700;\">☀️ ⇒ 💧 ⇒ ☁️</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
+          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><figure style="text-align:center;margin:10px 0 18px;"><img src="content/resources/03-evaporacion.png" alt="El Sol calienta el agua y la transforma en vapor" style="max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;" /><figcaption style="font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;">El Sol calienta el agua y la transforma en vapor</figcaption></figure><p>La <strong>evaporación</strong> es la primera fase del ciclo. El calor del Sol transforma el agua líquida de mares, ríos y lagos en <strong>vapor de agua</strong>, que asciende a la atmósfera.</p><p>Las plantas también aportan vapor mediante un proceso llamado <em>transpiración</em>. La suma de ambos se conoce como <strong>evapotranspiración</strong>.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
+          <jsonProperties><![CDATA[{"ideviceId":"SP00000011","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<figure style=\"text-align:center;margin:10px 0 18px;\"><img src=\"content/resources/03-evaporacion.png\" alt=\"El Sol calienta el agua y la transforma en vapor\" style=\"max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;\" /><figcaption style=\"font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;\">El Sol calienta el agua y la transforma en vapor</figcaption></figure><p>La <strong>evaporación</strong> es la primera fase del ciclo. El calor del Sol transforma el agua líquida de mares, ríos y lagos en <strong>vapor de agua</strong>, que asciende a la atmósfera.</p><p>Las plantas también aportan vapor mediante un proceso llamado <em>transpiración</em>. La suma de ambos se conoce como <strong>evapotranspiración</strong>.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
           <odeComponentsOrder>1</odeComponentsOrder>
           <odeComponentsProperties>
             <odeComponentsProperty>
@@ -442,8 +450,8 @@
   </odePagStructures>
 </odeNavStructure>
 <odeNavStructure>
-  <odePageId>page-mo5o4p22-xf5ohv4bs</odePageId>
-  <odeParentPageId>page-mo5o4p20-rns3qjub3</odeParentPageId>
+  <odePageId>page-mo5oqoem-fc7fu8o6j</odePageId>
+  <odeParentPageId>page-mo5oqoem-s9j28xvoe</odeParentPageId>
   <pageName>Condensación</pageName>
   <odeNavStructureOrder>1</odeNavStructureOrder>
   <odeNavStructureProperties>
@@ -486,7 +494,7 @@
   </odeNavStructureProperties>
   <odePagStructures>
     <odePagStructure>
-      <odePageId>page-mo5o4p22-xf5ohv4bs</odePageId>
+      <odePageId>page-mo5oqoem-fc7fu8o6j</odePageId>
       <odeBlockId>SP00000013</odeBlockId>
       <blockName>Del vapor a las nubes</blockName>
       <iconName>draw</iconName>
@@ -515,12 +523,12 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p22-xf5ohv4bs</odePageId>
+          <odePageId>page-mo5oqoem-fc7fu8o6j</odePageId>
           <odeBlockId>SP00000013</odeBlockId>
           <odeIdeviceId>SP00000014</odeIdeviceId>
           <odeIdeviceTypeName>text</odeIdeviceTypeName>
-          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><p>Al subir, el vapor de agua encuentra temperaturas cada vez más frías. Se <strong>condensa</strong> en minúsculas gotas que forman las <strong>nubes</strong>.</p><p>Cuando las gotas se agrupan y crecen, se vuelven demasiado pesadas para flotar y darán paso a la siguiente fase.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
-          <jsonProperties><![CDATA[{"ideviceId":"SP00000014","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<p>Al subir, el vapor de agua encuentra temperaturas cada vez más frías. Se <strong>condensa</strong> en minúsculas gotas que forman las <strong>nubes</strong>.</p><p>Cuando las gotas se agrupan y crecen, se vuelven demasiado pesadas para flotar y darán paso a la siguiente fase.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
+          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><figure style="text-align:center;margin:10px 0 18px;"><img src="content/resources/04-condensacion.png" alt="El vapor se enfría y forma nubes" style="max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;" /><figcaption style="font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;">El vapor se enfría y forma nubes</figcaption></figure><p>Al subir, el vapor de agua encuentra temperaturas cada vez más frías. Se <strong>condensa</strong> en minúsculas gotas que forman las <strong>nubes</strong>.</p><p>Cuando las gotas se agrupan y crecen, se vuelven demasiado pesadas para flotar y darán paso a la siguiente fase.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
+          <jsonProperties><![CDATA[{"ideviceId":"SP00000014","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<figure style=\"text-align:center;margin:10px 0 18px;\"><img src=\"content/resources/04-condensacion.png\" alt=\"El vapor se enfría y forma nubes\" style=\"max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;\" /><figcaption style=\"font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;\">El vapor se enfría y forma nubes</figcaption></figure><p>Al subir, el vapor de agua encuentra temperaturas cada vez más frías. Se <strong>condensa</strong> en minúsculas gotas que forman las <strong>nubes</strong>.</p><p>Cuando las gotas se agrupan y crecen, se vuelven demasiado pesadas para flotar y darán paso a la siguiente fase.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
           <odeComponentsOrder>1</odeComponentsOrder>
           <odeComponentsProperties>
             <odeComponentsProperty>
@@ -542,8 +550,8 @@
   </odePagStructures>
 </odeNavStructure>
 <odeNavStructure>
-  <odePageId>page-mo5o4p23-reshn78kj</odePageId>
-  <odeParentPageId>page-mo5o4p20-rns3qjub3</odeParentPageId>
+  <odePageId>page-mo5oqoem-oh9qllknn</odePageId>
+  <odeParentPageId>page-mo5oqoem-s9j28xvoe</odeParentPageId>
   <pageName>Precipitación</pageName>
   <odeNavStructureOrder>2</odeNavStructureOrder>
   <odeNavStructureProperties>
@@ -586,7 +594,7 @@
   </odeNavStructureProperties>
   <odePagStructures>
     <odePagStructure>
-      <odePageId>page-mo5o4p23-reshn78kj</odePageId>
+      <odePageId>page-mo5oqoem-oh9qllknn</odePageId>
       <odeBlockId>SP00000016</odeBlockId>
       <blockName>Lluvia, nieve y granizo</blockName>
       <iconName>draw</iconName>
@@ -615,12 +623,12 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p23-reshn78kj</odePageId>
+          <odePageId>page-mo5oqoem-oh9qllknn</odePageId>
           <odeBlockId>SP00000016</odeBlockId>
           <odeIdeviceId>SP00000017</odeIdeviceId>
           <odeIdeviceTypeName>text</odeIdeviceTypeName>
-          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><p>La <strong>precipitación</strong> es la caída del agua desde las nubes hasta la superficie terrestre. Puede adoptar forma de:</p><ul><li><strong>Lluvia</strong>, si las gotas caen líquidas.</li><li><strong>Nieve</strong>, si se congelan formando cristales.</li><li><strong>Granizo</strong>, si se forman bolitas de hielo.</li></ul><p>En regiones frías, buena parte del agua queda almacenada en <em>glaciares</em> y neveros durante siglos.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
-          <jsonProperties><![CDATA[{"ideviceId":"SP00000017","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<p>La <strong>precipitación</strong> es la caída del agua desde las nubes hasta la superficie terrestre. Puede adoptar forma de:</p><ul><li><strong>Lluvia</strong>, si las gotas caen líquidas.</li><li><strong>Nieve</strong>, si se congelan formando cristales.</li><li><strong>Granizo</strong>, si se forman bolitas de hielo.</li></ul><p>En regiones frías, buena parte del agua queda almacenada en <em>glaciares</em> y neveros durante siglos.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
+          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><figure style="text-align:center;margin:10px 0 18px;"><img src="content/resources/05-precipitacion.png" alt="Lluvia, nieve y granizo caen desde las nubes" style="max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;" /><figcaption style="font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;">Lluvia, nieve y granizo caen desde las nubes</figcaption></figure><p>La <strong>precipitación</strong> es la caída del agua desde las nubes hasta la superficie terrestre. Puede adoptar forma de:</p><ul><li><strong>Lluvia</strong>, si las gotas caen líquidas.</li><li><strong>Nieve</strong>, si se congelan formando cristales.</li><li><strong>Granizo</strong>, si se forman bolitas de hielo.</li></ul><p>En regiones frías, buena parte del agua queda almacenada en <em>glaciares</em> y neveros durante siglos.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
+          <jsonProperties><![CDATA[{"ideviceId":"SP00000017","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<figure style=\"text-align:center;margin:10px 0 18px;\"><img src=\"content/resources/05-precipitacion.png\" alt=\"Lluvia, nieve y granizo caen desde las nubes\" style=\"max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;\" /><figcaption style=\"font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;\">Lluvia, nieve y granizo caen desde las nubes</figcaption></figure><p>La <strong>precipitación</strong> es la caída del agua desde las nubes hasta la superficie terrestre. Puede adoptar forma de:</p><ul><li><strong>Lluvia</strong>, si las gotas caen líquidas.</li><li><strong>Nieve</strong>, si se congelan formando cristales.</li><li><strong>Granizo</strong>, si se forman bolitas de hielo.</li></ul><p>En regiones frías, buena parte del agua queda almacenada en <em>glaciares</em> y neveros durante siglos.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
           <odeComponentsOrder>1</odeComponentsOrder>
           <odeComponentsProperties>
             <odeComponentsProperty>
@@ -642,8 +650,8 @@
   </odePagStructures>
 </odeNavStructure>
 <odeNavStructure>
-  <odePageId>page-mo5o4p23-v7vbmyoq7</odePageId>
-  <odeParentPageId>page-mo5o4p20-rns3qjub3</odeParentPageId>
+  <odePageId>page-mo5oqoem-mxu5g161x</odePageId>
+  <odeParentPageId>page-mo5oqoem-s9j28xvoe</odeParentPageId>
   <pageName>Recogida</pageName>
   <odeNavStructureOrder>3</odeNavStructureOrder>
   <odeNavStructureProperties>
@@ -686,7 +694,7 @@
   </odeNavStructureProperties>
   <odePagStructures>
     <odePagStructure>
-      <odePageId>page-mo5o4p23-v7vbmyoq7</odePageId>
+      <odePageId>page-mo5oqoem-mxu5g161x</odePageId>
       <odeBlockId>SP00000019</odeBlockId>
       <blockName>El agua vuelve al mar</blockName>
       <iconName>draw</iconName>
@@ -715,12 +723,12 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p23-v7vbmyoq7</odePageId>
+          <odePageId>page-mo5oqoem-mxu5g161x</odePageId>
           <odeBlockId>SP00000019</odeBlockId>
           <odeIdeviceId>SP00000020</odeIdeviceId>
           <odeIdeviceTypeName>text</odeIdeviceTypeName>
-          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><p>El agua de lluvia y nieve fluye por la superficie formando arroyos, ríos y embalses. Parte se filtra en el terreno creando <strong>acuíferos</strong> subterráneos.</p><p>Tarde o temprano, toda esa agua regresa al océano y el ciclo vuelve a comenzar.</p><p><em>Y así, gota a gota, el agua ha estado circulando por la Tierra desde hace miles de millones de años.</em></p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
-          <jsonProperties><![CDATA[{"ideviceId":"SP00000020","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<p>El agua de lluvia y nieve fluye por la superficie formando arroyos, ríos y embalses. Parte se filtra en el terreno creando <strong>acuíferos</strong> subterráneos.</p><p>Tarde o temprano, toda esa agua regresa al océano y el ciclo vuelve a comenzar.</p><p><em>Y así, gota a gota, el agua ha estado circulando por la Tierra desde hace miles de millones de años.</em></p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
+          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><figure style="text-align:center;margin:10px 0 18px;"><img src="content/resources/06-recogida.png" alt="Ríos, lagos y océanos recogen el agua que vuelve" style="max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;" /><figcaption style="font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;">Ríos, lagos y océanos recogen el agua que vuelve</figcaption></figure><p>El agua de lluvia y nieve fluye por la superficie formando arroyos, ríos y embalses. Parte se filtra en el terreno creando <strong>acuíferos</strong> subterráneos.</p><p>Tarde o temprano, toda esa agua regresa al océano y el ciclo vuelve a comenzar.</p><p><em>Y así, gota a gota, el agua ha estado circulando por la Tierra desde hace miles de millones de años.</em></p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
+          <jsonProperties><![CDATA[{"ideviceId":"SP00000020","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<figure style=\"text-align:center;margin:10px 0 18px;\"><img src=\"content/resources/06-recogida.png\" alt=\"Ríos, lagos y océanos recogen el agua que vuelve\" style=\"max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;\" /><figcaption style=\"font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;\">Ríos, lagos y océanos recogen el agua que vuelve</figcaption></figure><p>El agua de lluvia y nieve fluye por la superficie formando arroyos, ríos y embalses. Parte se filtra en el terreno creando <strong>acuíferos</strong> subterráneos.</p><p>Tarde o temprano, toda esa agua regresa al océano y el ciclo vuelve a comenzar.</p><p><em>Y así, gota a gota, el agua ha estado circulando por la Tierra desde hace miles de millones de años.</em></p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
           <odeComponentsOrder>1</odeComponentsOrder>
           <odeComponentsProperties>
             <odeComponentsProperty>
@@ -742,7 +750,7 @@
   </odePagStructures>
 </odeNavStructure>
 <odeNavStructure>
-  <odePageId>page-mo5o4p24-8gu4a4znd</odePageId>
+  <odePageId>page-mo5oqoen-2md6x09an</odePageId>
   <odeParentPageId></odeParentPageId>
   <pageName>Actividades</pageName>
   <odeNavStructureOrder>2</odeNavStructureOrder>
@@ -786,7 +794,7 @@
   </odeNavStructureProperties>
   <odePagStructures>
     <odePagStructure>
-      <odePageId>page-mo5o4p24-8gu4a4znd</odePageId>
+      <odePageId>page-mo5oqoen-2md6x09an</odePageId>
       <odeBlockId>SP00000022</odeBlockId>
       <blockName>Comprueba lo aprendido</blockName>
       <iconName>reflection</iconName>
@@ -815,13 +823,13 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p24-8gu4a4znd</odePageId>
+          <odePageId>page-mo5oqoen-2md6x09an</odePageId>
           <odeBlockId>SP00000022</odeBlockId>
           <odeIdeviceId>SP00000023</odeIdeviceId>
           <odeIdeviceTypeName>text</odeIdeviceTypeName>
-          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><p>Pon a prueba lo aprendido con las dos actividades de las subpáginas.</p>
+          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><figure style="text-align:center;margin:10px 0 18px;"><img src="content/resources/07-actividades.png" alt="Vamos a poner a prueba lo aprendido" style="max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;" /><figcaption style="font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;">Vamos a poner a prueba lo aprendido</figcaption></figure><p>Pon a prueba lo aprendido con las dos actividades de las subpáginas.</p>
         <p>En la primera deberás <strong>ordenar</strong> las fases del ciclo. En la segunda decidirás si varias afirmaciones son <strong>verdaderas o falsas</strong>.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
-          <jsonProperties><![CDATA[{"ideviceId":"SP00000023","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<p>Pon a prueba lo aprendido con las dos actividades de las subpáginas.</p>\n        <p>En la primera deberás <strong>ordenar</strong> las fases del ciclo. En la segunda decidirás si varias afirmaciones son <strong>verdaderas o falsas</strong>.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
+          <jsonProperties><![CDATA[{"ideviceId":"SP00000023","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<figure style=\"text-align:center;margin:10px 0 18px;\"><img src=\"content/resources/07-actividades.png\" alt=\"Vamos a poner a prueba lo aprendido\" style=\"max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;\" /><figcaption style=\"font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;\">Vamos a poner a prueba lo aprendido</figcaption></figure><p>Pon a prueba lo aprendido con las dos actividades de las subpáginas.</p>\n        <p>En la primera deberás <strong>ordenar</strong> las fases del ciclo. En la segunda decidirás si varias afirmaciones son <strong>verdaderas o falsas</strong>.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
           <odeComponentsOrder>1</odeComponentsOrder>
           <odeComponentsProperties>
             <odeComponentsProperty>
@@ -843,8 +851,8 @@
   </odePagStructures>
 </odeNavStructure>
 <odeNavStructure>
-  <odePageId>page-mo5o4p24-lnac1l8cm</odePageId>
-  <odeParentPageId>page-mo5o4p24-8gu4a4znd</odeParentPageId>
+  <odePageId>page-mo5oqoen-wug6etjja</odePageId>
+  <odeParentPageId>page-mo5oqoen-2md6x09an</odeParentPageId>
   <pageName>Ordena las fases</pageName>
   <odeNavStructureOrder>0</odeNavStructureOrder>
   <odeNavStructureProperties>
@@ -887,7 +895,7 @@
   </odeNavStructureProperties>
   <odePagStructures>
     <odePagStructure>
-      <odePageId>page-mo5o4p24-lnac1l8cm</odePageId>
+      <odePageId>page-mo5oqoen-wug6etjja</odePageId>
       <odeBlockId>SP00000025</odeBlockId>
       <blockName>Cómo se hace</blockName>
       <iconName>pieces</iconName>
@@ -916,12 +924,12 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p24-lnac1l8cm</odePageId>
+          <odePageId>page-mo5oqoen-wug6etjja</odePageId>
           <odeBlockId>SP00000025</odeBlockId>
           <odeIdeviceId>SP00000026</odeIdeviceId>
           <odeIdeviceTypeName>text</odeIdeviceTypeName>
-          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><p>Arrastra cada paso hasta dejar las fases en el <strong>orden natural</strong> en el que se producen.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
-          <jsonProperties><![CDATA[{"ideviceId":"SP00000026","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<p>Arrastra cada paso hasta dejar las fases en el <strong>orden natural</strong> en el que se producen.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
+          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><figure style="text-align:center;margin:10px 0 18px;"><img src="content/resources/08-ordena-las-fases.png" alt="Ordena las cuatro fases del ciclo" style="max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;" /><figcaption style="font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;">Ordena las cuatro fases del ciclo</figcaption></figure><p>Arrastra cada paso hasta dejar las fases en el <strong>orden natural</strong> en el que se producen.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
+          <jsonProperties><![CDATA[{"ideviceId":"SP00000026","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<figure style=\"text-align:center;margin:10px 0 18px;\"><img src=\"content/resources/08-ordena-las-fases.png\" alt=\"Ordena las cuatro fases del ciclo\" style=\"max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;\" /><figcaption style=\"font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;\">Ordena las cuatro fases del ciclo</figcaption></figure><p>Arrastra cada paso hasta dejar las fases en el <strong>orden natural</strong> en el que se producen.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
           <odeComponentsOrder>1</odeComponentsOrder>
           <odeComponentsProperties>
             <odeComponentsProperty>
@@ -941,7 +949,7 @@
       </odeComponents>
     </odePagStructure>
     <odePagStructure>
-      <odePageId>page-mo5o4p24-lnac1l8cm</odePageId>
+      <odePageId>page-mo5oqoen-wug6etjja</odePageId>
       <odeBlockId>SP00000027</odeBlockId>
       <blockName>Ordena las fases del ciclo</blockName>
       <iconName>pieces</iconName>
@@ -970,7 +978,7 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p24-lnac1l8cm</odePageId>
+          <odePageId>page-mo5oqoen-wug6etjja</odePageId>
           <odeBlockId>SP00000027</odeBlockId>
           <odeIdeviceId>SP00000028</odeIdeviceId>
           <odeIdeviceTypeName>scrambled-list</odeIdeviceTypeName>
@@ -997,8 +1005,8 @@
   </odePagStructures>
 </odeNavStructure>
 <odeNavStructure>
-  <odePageId>page-mo5o4p25-u14gu0nec</odePageId>
-  <odeParentPageId>page-mo5o4p24-8gu4a4znd</odeParentPageId>
+  <odePageId>page-mo5oqoen-oyfd4vc88</odePageId>
+  <odeParentPageId>page-mo5oqoen-2md6x09an</odeParentPageId>
   <pageName>¿Verdadero o falso?</pageName>
   <odeNavStructureOrder>1</odeNavStructureOrder>
   <odeNavStructureProperties>
@@ -1041,7 +1049,7 @@
   </odeNavStructureProperties>
   <odePagStructures>
     <odePagStructure>
-      <odePageId>page-mo5o4p25-u14gu0nec</odePageId>
+      <odePageId>page-mo5oqoen-oyfd4vc88</odePageId>
       <odeBlockId>SP00000030</odeBlockId>
       <blockName>Cómo se hace</blockName>
       <iconName>ask</iconName>
@@ -1070,12 +1078,12 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p25-u14gu0nec</odePageId>
+          <odePageId>page-mo5oqoen-oyfd4vc88</odePageId>
           <odeBlockId>SP00000030</odeBlockId>
           <odeIdeviceId>SP00000031</odeIdeviceId>
           <odeIdeviceTypeName>text</odeIdeviceTypeName>
-          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><p>Lee cada afirmación y decide si es <strong>verdadera</strong> o <strong>falsa</strong>.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
-          <jsonProperties><![CDATA[{"ideviceId":"SP00000031","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<p>Lee cada afirmación y decide si es <strong>verdadera</strong> o <strong>falsa</strong>.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
+          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><figure style="text-align:center;margin:10px 0 18px;"><img src="content/resources/09-verdadero-o-falso.png" alt="Decide si cada afirmación es verdadera o falsa" style="max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;" /><figcaption style="font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;">Decide si cada afirmación es verdadera o falsa</figcaption></figure><p>Lee cada afirmación y decide si es <strong>verdadera</strong> o <strong>falsa</strong>.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
+          <jsonProperties><![CDATA[{"ideviceId":"SP00000031","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<figure style=\"text-align:center;margin:10px 0 18px;\"><img src=\"content/resources/09-verdadero-o-falso.png\" alt=\"Decide si cada afirmación es verdadera o falsa\" style=\"max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;\" /><figcaption style=\"font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;\">Decide si cada afirmación es verdadera o falsa</figcaption></figure><p>Lee cada afirmación y decide si es <strong>verdadera</strong> o <strong>falsa</strong>.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
           <odeComponentsOrder>1</odeComponentsOrder>
           <odeComponentsProperties>
             <odeComponentsProperty>
@@ -1095,7 +1103,7 @@
       </odeComponents>
     </odePagStructure>
     <odePagStructure>
-      <odePageId>page-mo5o4p25-u14gu0nec</odePageId>
+      <odePageId>page-mo5oqoen-oyfd4vc88</odePageId>
       <odeBlockId>SP00000032</odeBlockId>
       <blockName>Afirmaciones sobre el ciclo</blockName>
       <iconName>ask</iconName>
@@ -1124,7 +1132,7 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p25-u14gu0nec</odePageId>
+          <odePageId>page-mo5oqoen-oyfd4vc88</odePageId>
           <odeBlockId>SP00000032</odeBlockId>
           <odeIdeviceId>SP00000033</odeIdeviceId>
           <odeIdeviceTypeName>trueorfalse</odeIdeviceTypeName>
@@ -1151,7 +1159,7 @@
   </odePagStructures>
 </odeNavStructure>
 <odeNavStructure>
-  <odePageId>page-mo5o4p26-fhqk4h13z</odePageId>
+  <odePageId>page-mo5oqoen-p446yeqrc</odePageId>
   <odeParentPageId></odeParentPageId>
   <pageName>Recursos</pageName>
   <odeNavStructureOrder>3</odeNavStructureOrder>
@@ -1195,7 +1203,7 @@
   </odeNavStructureProperties>
   <odePagStructures>
     <odePagStructure>
-      <odePageId>page-mo5o4p26-fhqk4h13z</odePageId>
+      <odePageId>page-mo5oqoen-p446yeqrc</odePageId>
       <odeBlockId>SP00000035</odeBlockId>
       <blockName>Para saber más</blockName>
       <iconName>book</iconName>
@@ -1224,18 +1232,18 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p26-fhqk4h13z</odePageId>
+          <odePageId>page-mo5oqoen-p446yeqrc</odePageId>
           <odeBlockId>SP00000035</odeBlockId>
           <odeIdeviceId>SP00000036</odeIdeviceId>
           <odeIdeviceTypeName>text</odeIdeviceTypeName>
-          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><p>Estos recursos te ayudarán a profundizar en el ciclo del agua:</p>
+          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><figure style="text-align:center;margin:10px 0 18px;"><img src="content/resources/10-recursos.png" alt="Enlaces para seguir aprendiendo" style="max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;" /><figcaption style="font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;">Enlaces para seguir aprendiendo</figcaption></figure><p>Estos recursos te ayudarán a profundizar en el ciclo del agua:</p>
         <ul>
           <li><a href="https://es.wikipedia.org/wiki/Ciclo_hidrol%C3%B3gico" target="_blank" rel="noopener">Wikipedia · Ciclo hidrológico</a></li>
           <li><a href="https://www.juntadeandalucia.es/educacion/permanente/materiales/" target="_blank" rel="noopener">Materiales de educación permanente</a></li>
           <li><a href="https://exelearning.net/" target="_blank" rel="noopener">exelearning.net</a> — la herramienta con la que se ha creado esta unidad</li>
         </ul>
         <p><em>Licencia: CC BY-SA 4.0. Puedes reutilizar y modificar este material citando a su autor.</em></p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
-          <jsonProperties><![CDATA[{"ideviceId":"SP00000036","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<p>Estos recursos te ayudarán a profundizar en el ciclo del agua:</p>\n        <ul>\n          <li><a href=\"https://es.wikipedia.org/wiki/Ciclo_hidrol%C3%B3gico\" target=\"_blank\" rel=\"noopener\">Wikipedia · Ciclo hidrológico</a></li>\n          <li><a href=\"https://www.juntadeandalucia.es/educacion/permanente/materiales/\" target=\"_blank\" rel=\"noopener\">Materiales de educación permanente</a></li>\n          <li><a href=\"https://exelearning.net/\" target=\"_blank\" rel=\"noopener\">exelearning.net</a> — la herramienta con la que se ha creado esta unidad</li>\n        </ul>\n        <p><em>Licencia: CC BY-SA 4.0. Puedes reutilizar y modificar este material citando a su autor.</em></p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
+          <jsonProperties><![CDATA[{"ideviceId":"SP00000036","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<figure style=\"text-align:center;margin:10px 0 18px;\"><img src=\"content/resources/10-recursos.png\" alt=\"Enlaces para seguir aprendiendo\" style=\"max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;\" /><figcaption style=\"font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;\">Enlaces para seguir aprendiendo</figcaption></figure><p>Estos recursos te ayudarán a profundizar en el ciclo del agua:</p>\n        <ul>\n          <li><a href=\"https://es.wikipedia.org/wiki/Ciclo_hidrol%C3%B3gico\" target=\"_blank\" rel=\"noopener\">Wikipedia · Ciclo hidrológico</a></li>\n          <li><a href=\"https://www.juntadeandalucia.es/educacion/permanente/materiales/\" target=\"_blank\" rel=\"noopener\">Materiales de educación permanente</a></li>\n          <li><a href=\"https://exelearning.net/\" target=\"_blank\" rel=\"noopener\">exelearning.net</a> — la herramienta con la que se ha creado esta unidad</li>\n        </ul>\n        <p><em>Licencia: CC BY-SA 4.0. Puedes reutilizar y modificar este material citando a su autor.</em></p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
           <odeComponentsOrder>1</odeComponentsOrder>
           <odeComponentsProperties>
             <odeComponentsProperty>
@@ -1257,7 +1265,7 @@
   </odePagStructures>
 </odeNavStructure>
 <odeNavStructure>
-  <odePageId>page-mo5o4p27-ytuqohibt</odePageId>
+  <odePageId>page-mo5oqoeo-5o4ave7m1</odePageId>
   <odeParentPageId></odeParentPageId>
   <pageName>Créditos y descargas</pageName>
   <odeNavStructureOrder>4</odeNavStructureOrder>
@@ -1301,7 +1309,7 @@
   </odeNavStructureProperties>
   <odePagStructures>
     <odePagStructure>
-      <odePageId>page-mo5o4p27-ytuqohibt</odePageId>
+      <odePageId>page-mo5oqoeo-5o4ave7m1</odePageId>
       <odeBlockId>SP00000038</odeBlockId>
       <blockName>Sobre esta unidad</blockName>
       <iconName>info</iconName>
@@ -1330,14 +1338,23 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p27-ytuqohibt</odePageId>
+          <odePageId>page-mo5oqoeo-5o4ave7m1</odePageId>
           <odeBlockId>SP00000038</odeBlockId>
           <odeIdeviceId>SP00000039</odeIdeviceId>
           <odeIdeviceTypeName>text</odeIdeviceTypeName>
-          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><p>Esta unidad de ejemplo ha sido creada por el <strong>Área de Tecnología Educativa</strong> de la Consejería de Educación, FP y Actividad Física del <strong>Gobierno de Canarias</strong>, para mostrar el estilo <em>Spectrum 128K</em>.</p>
+          <htmlView><![CDATA[<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div><figure style="text-align:center;margin:10px 0 18px;"><img src="content/resources/11-creditos-y-descargas.png" alt="Créditos y descargas" style="max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;" /><figcaption style="font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;">Créditos y descargas</figcaption></figure><p>Esta unidad de ejemplo ha sido creada por el <strong>Área de Tecnología Educativa</strong> de la Consejería de Educación, Formación Profesional, Actividad Física y Deportes del <strong>Gobierno de Canarias</strong>, para mostrar el estilo <em>Spectrum 128K</em>.</p>
         <p><strong>Agradecimientos:</strong> comunidad de <a href="https://exelearning.net/" target="_blank" rel="noopener">eXeLearning</a>, mantenida por el <a href="https://cedec.intef.es/" target="_blank" rel="noopener">CEDEC</a> y las diferentes administraciones educativas del Estado.</p>
-        <p><strong>Licencia:</strong> Creative Commons Reconocimiento-CompartirIgual 4.0 (CC BY-SA 4.0). Puedes reutilizar este recurso siempre que cites a su autor y lo publiques bajo la misma licencia.</p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
-          <jsonProperties><![CDATA[{"ideviceId":"SP00000039","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<p>Esta unidad de ejemplo ha sido creada por el <strong>Área de Tecnología Educativa</strong> de la Consejería de Educación, FP y Actividad Física del <strong>Gobierno de Canarias</strong>, para mostrar el estilo <em>Spectrum 128K</em>.</p>\n        <p><strong>Agradecimientos:</strong> comunidad de <a href=\"https://exelearning.net/\" target=\"_blank\" rel=\"noopener\">eXeLearning</a>, mantenida por el <a href=\"https://cedec.intef.es/\" target=\"_blank\" rel=\"noopener\">CEDEC</a> y las diferentes administraciones educativas del Estado.</p>\n        <p><strong>Licencia:</strong> Creative Commons Reconocimiento-CompartirIgual 4.0 (CC BY-SA 4.0). Puedes reutilizar este recurso siempre que cites a su autor y lo publiques bajo la misma licencia.</p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
+        <p><strong>Licencia:</strong> Creative Commons Reconocimiento-CompartirIgual 4.0 (CC BY-SA 4.0). Puedes reutilizar este recurso siempre que cites a su autor y lo publiques bajo la misma licencia.</p><p style="text-align:center;margin-top:22px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+    <a href="https://static.exelearning.dev/?url=https://raw.githubusercontent.com/ateeducacion/exelearning-style-spectrum128k/main/sample/el-ciclo-del-agua-spectrum128k.elpx" target="_blank" rel="noopener"
+       style="display:inline-block;background:#D7D700;color:#000;padding:10px 18px;border:3px solid #000;box-shadow:4px 4px 0 #D700D7;font-family:'VT323',monospace;font-size:22px;text-decoration:none;letter-spacing:0.5px;">
+      ▶ abrir en eXeLearning
+    </a>
+    <a href="https://github.com/ateeducacion/exelearning-style-spectrum128k/releases/latest/download/spectrum128k.zip" target="_blank" rel="noopener"
+       style="display:inline-block;background:#00D7D7;color:#000;padding:10px 18px;border:3px solid #000;box-shadow:4px 4px 0 #D700D7;font-family:'VT323',monospace;font-size:22px;text-decoration:none;letter-spacing:0.5px;">
+      ↓ descargar estilo
+    </a>
+    </p><p class="clearfix"> </p></div></div></div></div>]]></htmlView>
+          <jsonProperties><![CDATA[{"ideviceId":"SP00000039","textInfoDurationInput":"","textInfoDurationTextInput":"Duración:","textInfoParticipantsInput":"","textInfoParticipantsTextInput":"Agrupar:","textTextarea":"<figure style=\"text-align:center;margin:10px 0 18px;\"><img src=\"content/resources/11-creditos-y-descargas.png\" alt=\"Créditos y descargas\" style=\"max-width:100%;image-rendering:pixelated;border:3px solid #D700D7;\" /><figcaption style=\"font-family:'VT323',monospace;font-size:16px;color:#707078;margin-top:6px;\">Créditos y descargas</figcaption></figure><p>Esta unidad de ejemplo ha sido creada por el <strong>Área de Tecnología Educativa</strong> de la Consejería de Educación, Formación Profesional, Actividad Física y Deportes del <strong>Gobierno de Canarias</strong>, para mostrar el estilo <em>Spectrum 128K</em>.</p>\n        <p><strong>Agradecimientos:</strong> comunidad de <a href=\"https://exelearning.net/\" target=\"_blank\" rel=\"noopener\">eXeLearning</a>, mantenida por el <a href=\"https://cedec.intef.es/\" target=\"_blank\" rel=\"noopener\">CEDEC</a> y las diferentes administraciones educativas del Estado.</p>\n        <p><strong>Licencia:</strong> Creative Commons Reconocimiento-CompartirIgual 4.0 (CC BY-SA 4.0). Puedes reutilizar este recurso siempre que cites a su autor y lo publiques bajo la misma licencia.</p><p style=\"text-align:center;margin-top:22px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;\">\n    <a href=\"https://static.exelearning.dev/?url=https://raw.githubusercontent.com/ateeducacion/exelearning-style-spectrum128k/main/sample/el-ciclo-del-agua-spectrum128k.elpx\" target=\"_blank\" rel=\"noopener\"\n       style=\"display:inline-block;background:#D7D700;color:#000;padding:10px 18px;border:3px solid #000;box-shadow:4px 4px 0 #D700D7;font-family:'VT323',monospace;font-size:22px;text-decoration:none;letter-spacing:0.5px;\">\n      ▶ abrir en eXeLearning\n    </a>\n    <a href=\"https://github.com/ateeducacion/exelearning-style-spectrum128k/releases/latest/download/spectrum128k.zip\" target=\"_blank\" rel=\"noopener\"\n       style=\"display:inline-block;background:#00D7D7;color:#000;padding:10px 18px;border:3px solid #000;box-shadow:4px 4px 0 #D700D7;font-family:'VT323',monospace;font-size:22px;text-decoration:none;letter-spacing:0.5px;\">\n      ↓ descargar estilo\n    </a>\n    </p>","textFeedbackInput":"Mostrar comentarios","textFeedbackTextarea":""}]]></jsonProperties>
           <odeComponentsOrder>1</odeComponentsOrder>
           <odeComponentsProperties>
             <odeComponentsProperty>
@@ -1357,7 +1374,7 @@
       </odeComponents>
     </odePagStructure>
     <odePagStructure>
-      <odePageId>page-mo5o4p27-ytuqohibt</odePageId>
+      <odePageId>page-mo5oqoeo-5o4ave7m1</odePageId>
       <odeBlockId>SP00000040</odeBlockId>
       <blockName>Descarga el archivo fuente</blockName>
       <iconName>download</iconName>
@@ -1386,7 +1403,7 @@
       </odePagStructureProperties>
       <odeComponents>
         <odeComponent>
-          <odePageId>page-mo5o4p27-ytuqohibt</odePageId>
+          <odePageId>page-mo5oqoeo-5o4ave7m1</odePageId>
           <odeBlockId>SP00000040</odeBlockId>
           <odeIdeviceId>SP00000041</odeIdeviceId>
           <odeIdeviceTypeName>download-source-file</odeIdeviceTypeName>
