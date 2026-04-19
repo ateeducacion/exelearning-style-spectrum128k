@@ -1433,48 +1433,61 @@ button#searchBarTogger { display: none; }
 #workarea .box-head {
     border: 2px solid var(--border) !important;
     margin-bottom: 10px;
+    /* The exported stylesheet clips the header with overflow:hidden to contain
+       the rainbow ribbon. In edit mode that also clips the actions dropdown
+       menu, leaving an empty white rectangle. Allow it to escape here. */
+    overflow: visible !important;
 }
+/* Shrink the rainbow ribbon in edit mode so it doesn't cover the 3-dot menu. */
+#workarea .box-head::after { width: 28px !important; opacity: 0.85; }
+
 /* The exported stylesheet sets .box-title color only inside .exe-export, so in
-   the editor the title renders dark-on-dark-blue. Force white + pixel font. */
+   the editor the title renders dark-on-dark-blue. Force white + pixel font
+   with !important because editor base.css also targets this selector. */
 #workarea .box-head .box-title,
-#workarea .box-head .content-editable-title,
-#workarea .box-head .content-editable-title [contenteditable] {
-    color: var(--sp-white);
-    font-family: var(--font-pixel);
-    font-size: 1.55em;
-    font-weight: normal;
+#workarea .box-head h1.box-title,
+#workarea .box-head .content-editable-title h1,
+#workarea .box-head .content-editable-title [contenteditable="true"] {
+    color: var(--sp-white) !important;
+    font-family: var(--font-pixel) !important;
+    font-size: 1.4em !important;
+    font-weight: normal !important;
     letter-spacing: 0.5px;
     line-height: 1.2;
-    padding-top: 4px;
+    margin: 0 !important;
+    padding: 6px 10px !important;
+    background: transparent !important;
 }
-/* The edit-title pencil, move-up/move-down arrows and 3-dot menu button use
-   dark SVG/mask icons that disappear on the dark-blue header. Invert them. */
+
+/* Invert the dark icons on the pencil/move/3-dot buttons so they're legible
+   on the blue header. The icons use mask-image or img src with dark ink. */
 #workarea .box-head .btn-edit-title,
 #workarea .box-head .box_actions .btn-action-menu {
-    color: var(--sp-white);
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 0;
+    color: var(--sp-white) !important;
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 0 !important;
 }
 #workarea .box-head .btn-edit-title:hover,
 #workarea .box-head .box_actions .btn-action-menu:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: var(--sp-white);
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-color: var(--sp-white) !important;
 }
 #workarea .box-head .btn-edit-title .small-icon,
-#workarea .box-head .box_actions .small-icon {
+#workarea .box-head .box_actions > .exe-actions-menu .small-icon {
     filter: invert(1) brightness(1.2);
 }
-/* Keep the rainbow ribbon from covering the action buttons. */
-#workarea .box-head .box_actions {
-    position: relative;
-    z-index: 2;
-    margin-right: 68px;
+#workarea .box-head .box_actions { position: relative; z-index: 2; margin-right: 36px; }
+
+/* Dropdown menu items land on the standard light Bootstrap surface — keep
+   their icons uninverted and text dark so they're readable. */
+#workarea .box-head .dropdown-menu {
+    z-index: 1080;
 }
-/* Dropdown menu items stay on a light surface — restore their default ink. */
 #workarea .box-head .dropdown-menu .dropdown-item {
-    color: var(--ink);
+    color: var(--ink) !important;
+    font-family: var(--font-mono, system-ui);
 }
 #workarea .box-head .dropdown-menu .dropdown-item .small-icon {
-    filter: none;
+    filter: none !important;
 }
