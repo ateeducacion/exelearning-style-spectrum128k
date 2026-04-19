@@ -1166,6 +1166,57 @@ button#searchBarTogger { display: none; }
 }
 
 /* -------------------------------------------------------------------------
+   Mobile top bar: prev/next as chevron cassette keys, counter compacted
+   ------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+    /* Drop the sprite-based home/arrow icons and draw clean chevrons. */
+    .nav-buttons .nav-button-left,
+    .nav-buttons .nav-button-right {
+        background-image: none !important;
+        background-size: auto !important;
+        filter: none !important;
+        top: 6px;
+        width: 40px;
+        height: 38px;
+        border: 2px solid var(--sp-black);
+        box-shadow: 2px 2px 0 var(--sp-black);
+        background-color: var(--sp-cyan);
+        color: var(--sp-black);
+        text-decoration: none;
+        text-align: center;
+        line-height: 34px;
+    }
+    .nav-buttons .nav-button-left:hover,
+    .nav-buttons .nav-button-right:hover { background-color: var(--sp-white); }
+    .nav-buttons .nav-button-left::before,
+    .nav-buttons .nav-button-right::before {
+        display: block;
+        font-family: var(--font-pixel);
+        font-size: 30px;
+        line-height: 32px;
+        color: var(--sp-black);
+    }
+    .nav-buttons .nav-button-left::before  { content: "\2039"; } /* ‹ */
+    .nav-buttons .nav-button-right::before { content: "\203A"; } /* › */
+    /* Disabled state (first/last page) renders as <span>; keep it muted. */
+    .nav-buttons span.nav-button { opacity: 0.35; filter: grayscale(1); }
+
+    /* Re-pack the right edge: tweaks(10..50) → dark(60..100) → next(108..148)
+       → prev(152..192) → counter(starts ~198). */
+    .nav-buttons .nav-button-right { right: 108px; }
+    .nav-buttons .nav-button-left  { right: 152px; }
+    .exe-web-site .page-counter {
+        right: 198px;
+        padding: 4px 6px;
+        font-size: 13px;
+        letter-spacing: 0;
+        gap: 2px;
+    }
+    /* "Página " label is redundant when we only have room for "2/11". */
+    .exe-web-site .page-counter .page-counter-label { display: none; }
+}
+
+/* -------------------------------------------------------------------------
    Print
    ------------------------------------------------------------------------- */
 @media print {
