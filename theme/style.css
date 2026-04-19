@@ -993,10 +993,20 @@ body.exe-web-site { padding-top: 56px; }
 
 /* Bigger Next/Previous labels on desktop */
 @media (min-width: 768px) {
+    /* Restore the previously visually-hidden "anterior"/"siguiente" label
+       on desktop. Has to match the !important used by the base hide rule. */
     .nav-buttons a span,
     .nav-buttons span span {
-        position: relative;
-        clip: auto;
+        position: relative !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        clip: auto !important;
+        clip-path: none !important;
+        white-space: normal !important;
+        border: 0 !important;
     }
     .nav-buttons .nav-button-left,
     .nav-buttons .nav-button-right {
