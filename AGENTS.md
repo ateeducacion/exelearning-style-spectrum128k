@@ -8,9 +8,9 @@ Two things coexist in the same repo, by design:
 
 1. **The Spectrum 128K style** for eXeLearning, living in `theme/`. This is what gets zipped on every release and uploaded as `spectrum128k.zip`, which the user can import from the eXeLearning app (*Utilidades → Importar estilo*).
 2. **An example unit** about *el ciclo del agua*, in the form of an **ELPX extracted at the repository root** (`index.html`, `content.xml`, `html/`, `idevices/`, `libs/`, `content/`, `search_index.js`). Serving this root with any static HTTP server is enough to preview the style in action.
-   - The repo root **is** the ELPX. To open it live in eXeLearning we no longer need a pre-packaged `.elpx`: the link
+   - The repo root **is** the ELPX. To open it live in eXeLearning the link
      `https://static.exelearning.dev/?url=https://github-proxy.exelearning.dev/?repo=ateeducacion/exelearning-style-spectrum128k&branch=main`
-     goes through `github-proxy.exelearning.dev`, which zips the repo on the fly and hands it to `static.exelearning.dev`. This replaces the previous `raw.githubusercontent.com/.../sample/…elpx` pattern and means the committed `.elpx` is only kept as an offline fallback — the canonical source is always the unzipped repo.
+     goes through `github-proxy.exelearning.dev`, which zips the repo on the fly and hands it to `static.exelearning.dev`. There is **no pre-built `.elpx` committed** — the canonical source is always the unzipped repo, so any edit to `theme/`, `content.xml`, `html/`, etc. is picked up by the next click on the link.
 
 ## 2. Repository layout
 
@@ -24,8 +24,6 @@ Two things coexist in the same repo, by design:
 │   ├── fonts/                   ← VT323 + JetBrains Mono (self-hosted)
 │   ├── icons/                   ← pixel-art iDevice icons (SVG, 16×16 grid)
 │   └── img/                     ← licenses.gif, home.png, icons.png sprite
-├── sample/
-│   └── el-ciclo-del-agua-spectrum128k.elpx
 ├── imagenes-generadas/          ← source PNG illustrations (1–11)
 ├── content/, html/, idevices/,
 │   libs/, content.xml, ...      ← unzipped ELPX for static browser preview
@@ -101,13 +99,13 @@ CSS variables (top of `style.css`):
 
 ## 6. The example unit and the builder script
 
-The sample ELPX at `sample/el-ciclo-del-agua-spectrum128k.elpx` is generated from a Python script kept out of the repo on purpose (it references the eXe repo's CLI). The working copy lives at `/tmp/build_water_cycle.py`.
+The example unit is generated from a Python script kept out of the repo on purpose (it references the eXe repo's CLI); a working copy lives at `scripts/build_water_cycle.py`. The output of the pipeline is the **unzipped workspace at the repo root** — there is no committed `.elpx`, since `github-proxy.exelearning.dev` zips the repo on demand.
 
 Pipeline to regenerate it:
 
 ```bash
 # 1. Build the .elp source
-python3 /tmp/build_water_cycle.py           # → /tmp/water-cycle.elp
+python3 scripts/build_water_cycle.py        # → /tmp/water-cycle.elp
 
 # 2. Export to .elpx using eXeLearning's CLI and the spectrum theme
 make -C /path/to/exelearning export-elpx \
@@ -116,11 +114,10 @@ make -C /path/to/exelearning export-elpx \
   OUTPUT=/tmp/water-cycle.elpx \
   THEME=spectrum128k                         # → /tmp/water-cycle.elpx
 
-# 3. Refresh the workspace (keep theme/, sample/, imagenes-generadas/)
+# 3. Refresh the workspace (keep theme/ and imagenes-generadas/)
 cd /Users/ernesto/Downloads/git/exelearning-style-spectrum128k
 rm -rf content content.dtd content.xml html idevices index.html libs search_index.js
 unzip -q -o /tmp/water-cycle.elpx -x "theme/*"
-cp /tmp/water-cycle.elpx sample/el-ciclo-del-agua-spectrum128k.elpx
 ```
 
 What the builder produces:
@@ -129,7 +126,7 @@ What the builder produces:
 - Each text iDevice embeds one of the 11 PNG illustrations from `imagenes-generadas/` via `content/resources/<n>-*.png`.
 - Two interactive iDevices: `scrambled-list` for ordering the phases, `trueorfalse` for four statements.
 - A `download-source-file` iDevice on the last page (download the .elp).
-- Two action buttons on intro and credits: **Abrir en eXeLearning** (`static.exelearning.dev/?url=https://github-proxy.exelearning.dev/?repo=ateeducacion/exelearning-style-spectrum128k&branch=main`, which serves the current state of `main` without needing a pre-built `.elpx`) and **Descargar estilo** (GitHub latest release `spectrum128k.zip`).
+- Two action buttons on intro and credits: **Abrir en eXeLearning** (`static.exelearning.dev/?url=https://github-proxy.exelearning.dev/?repo=ateeducacion/exelearning-style-spectrum128k&branch=main`, which zips and serves the current state of `main` on the fly) and **Descargar estilo** (GitHub latest release `spectrum128k.zip`).
 - `pp_addSearchBox=true`, `pp_addPagination=true`, `pp_theme=spectrum128k`, `pp_exportElp=true`.
 
 ## 7. Critical gotchas
@@ -139,7 +136,7 @@ What the builder produces:
 3. **Icon file names go into `<iconName>` without extension.** The renderer resolves `<iconName>book` → `theme/icons/book.svg` (or `.png`). Renaming an icon file is a breaking change.
 4. **`localStorage` keys to know:** `exeDarkMode` (value `on` if enabled), `exeSpectrumTweaks` (JSON with `scanlines`, `stripes`, `pixelAll`). Default stripes preset is `128k` — tests/screenshots should clear the key before asserting visual state.
 5. **Biome lints `style.js` loudly** (`var`, `$`, etc.). Every eXeLearning theme script is in this legacy style; this is expected and is not a CI blocker.
-6. **The extracted ELPX duplicates eXeLearning libs** (`libs/`, `idevices/`, `content/`). Regenerating the sample refreshes those — they are intentionally committed so `git clone && python3 -m http.server` gives a live preview without a build step.
+6. **The extracted ELPX duplicates eXeLearning libs** (`libs/`, `idevices/`, `content/`). Regenerating the example refreshes those — they are intentionally committed so `git clone && python3 -m http.server` gives a live preview without a build step, and so `github-proxy.exelearning.dev` can zip the repo into a valid ELPX without any server-side assembly.
 7. **CC0 `LICENSE` is for the repository infrastructure** (README, CI configs, example prose). The **theme itself and the example illustrations are CC BY-SA 4.0** per `theme/config.xml` and the credits page — do not conflate the two.
 
 ## 8. Open work items (as of the session that produced this file)
@@ -153,7 +150,7 @@ What the builder produces:
 
 1. Work only inside `/Users/ernesto/Downloads/git/exelearning-style-spectrum128k/`, using absolute paths.
 2. Style changes? Edit `theme/style.css` or `theme/style.js`. Reload the live preview; no rebuild needed.
-3. Example-unit changes? Edit `/tmp/build_water_cycle.py` and re-run the pipeline in §6. Commit the regenerated `content.xml`, `index.html`, `html/`, `content/resources/`, and `sample/…elpx`.
+3. Example-unit changes? Edit `scripts/build_water_cycle.py` and re-run the pipeline in §6. Commit the regenerated `content.xml`, `index.html`, `html/`, and `content/resources/`.
 4. README or AGENTS.md changes? Keep them short. The `README.md` is the user-facing landing page on GitHub.
 5. `git commit -m "…" && git push`. The remote is `git@github.com:ateeducacion/exelearning-style-spectrum128k.git`.
 

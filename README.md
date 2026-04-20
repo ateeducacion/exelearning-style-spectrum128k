@@ -9,8 +9,7 @@ Creado por el **Área de Tecnología Educativa** de la Consejería de Educación
 ## Estructura
 
 - **`theme/`** — el estilo Spectrum 128K (lo que se empaqueta como `spectrum128k.zip` en cada release).
-- **`sample/el-ciclo-del-agua-spectrum128k.elpx`** — recurso de ejemplo sobre el ciclo del agua.
-- **Raíz** — ELPX descomprimido, previsualizable con cualquier servidor estático (`python3 -m http.server`).
+- **Raíz** — ELPX descomprimido con el ejemplo *el ciclo del agua*, previsualizable con cualquier servidor estático (`python3 -m http.server`) y servido en directo por `github-proxy.exelearning.dev` al abrir el enlace de arriba.
 
 ## Panel de tweaks
 
