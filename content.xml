@@ -74,6 +74,10 @@
     <key>pp_globalFont</key>
     <value>default</value>
   </odeProperty>
+  <odeProperty>
+    <key>pp_footer</key>
+    <value><![CDATA[<p>© Área de Tecnología Educativa · Gobierno de Canarias — Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" rel="license noopener" target="_blank">Creative Commons BY-SA 4.0</a></p>]]></value>
+  </odeProperty>
 </odeProperties>
 <odeNavStructures>
 <odeNavStructure>

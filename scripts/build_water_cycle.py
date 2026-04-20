@@ -534,7 +534,7 @@ root = f'''<?xml version="1.0" encoding="utf-8"?>
   <odeProperty><key>pp_addSearchBox</key><value>true</value></odeProperty>
   <odeProperty><key>pp_addAccessibilityToolbar</key><value>false</value></odeProperty>
   <odeProperty><key>pp_extraHeadContent</key><value/></odeProperty>
-  <odeProperty><key>footer</key><value/></odeProperty>
+  <odeProperty><key>pp_footer</key><value><![CDATA[<p>© Área de Tecnología Educativa · Gobierno de Canarias — Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" rel="license noopener" target="_blank">Creative Commons BY-SA 4.0</a></p>]]></value></odeProperty>
   <odeProperty><key>exportSource</key><value>true</value></odeProperty>
 </odeProperties>
 <odeNavStructures>
