@@ -8,7 +8,9 @@ Two things coexist in the same repo, by design:
 
 1. **The Spectrum 128K style** for eXeLearning, living in `theme/`. This is what gets zipped on every release and uploaded as `spectrum128k.zip`, which the user can import from the eXeLearning app (*Utilidades → Importar estilo*).
 2. **An example unit** about *el ciclo del agua*, in the form of an **ELPX extracted at the repository root** (`index.html`, `content.xml`, `html/`, `idevices/`, `libs/`, `content/`, `search_index.js`). Serving this root with any static HTTP server is enough to preview the style in action.
-   - The packaged counterpart is `sample/el-ciclo-del-agua-spectrum128k.elpx`, so the link `https://static.exelearning.dev/?url=<raw-github>/sample/…elpx` can load it directly in the live eXeLearning viewer.
+   - The repo root **is** the ELPX. To open it live in eXeLearning we no longer need a pre-packaged `.elpx`: the link
+     `https://static.exelearning.dev/?url=https://github-proxy.exelearning.dev/?repo=ateeducacion/exelearning-style-spectrum128k&branch=main`
+     goes through `github-proxy.exelearning.dev`, which zips the repo on the fly and hands it to `static.exelearning.dev`. This replaces the previous `raw.githubusercontent.com/.../sample/…elpx` pattern and means the committed `.elpx` is only kept as an offline fallback — the canonical source is always the unzipped repo.
 
 ## 2. Repository layout
 
@@ -127,7 +129,7 @@ What the builder produces:
 - Each text iDevice embeds one of the 11 PNG illustrations from `imagenes-generadas/` via `content/resources/<n>-*.png`.
 - Two interactive iDevices: `scrambled-list` for ordering the phases, `trueorfalse` for four statements.
 - A `download-source-file` iDevice on the last page (download the .elp).
-- Two action buttons on intro and credits: **Abrir en eXeLearning** (`static.exelearning.dev/?url=<raw-github-url>/sample/…elpx`) and **Descargar estilo** (GitHub latest release `spectrum128k.zip`).
+- Two action buttons on intro and credits: **Abrir en eXeLearning** (`static.exelearning.dev/?url=https://github-proxy.exelearning.dev/?repo=ateeducacion/exelearning-style-spectrum128k&branch=main`, which serves the current state of `main` without needing a pre-built `.elpx`) and **Descargar estilo** (GitHub latest release `spectrum128k.zip`).
 - `pp_addSearchBox=true`, `pp_addPagination=true`, `pp_theme=spectrum128k`, `pp_exportElp=true`.
 
 ## 7. Critical gotchas

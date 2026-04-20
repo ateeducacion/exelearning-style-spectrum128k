@@ -254,8 +254,8 @@ def nid() -> str:
 # ---------- Pages ----------
 
 REPO_URL = 'https://github.com/ateeducacion/exelearning-style-spectrum128k'
-SAMPLE_ELPX_RAW = 'https://raw.githubusercontent.com/ateeducacion/exelearning-style-spectrum128k/main/sample/el-ciclo-del-agua-spectrum128k.elpx'
-OPEN_IN_EXE_URL = f'https://static.exelearning.dev/?url={SAMPLE_ELPX_RAW}'
+GITHUB_PROXY_URL = 'https://github-proxy.exelearning.dev/?repo=ateeducacion/exelearning-style-spectrum128k&amp;branch=main'
+OPEN_IN_EXE_URL = f'https://static.exelearning.dev/?url={GITHUB_PROXY_URL}'
 DOWNLOAD_STYLE_URL = f'{REPO_URL}/releases/latest/download/spectrum128k.zip'
 
 
