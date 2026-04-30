@@ -1,0 +1,72 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Build theme ZIP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: ver
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build theme ZIP (spectrum128k.zip)
+        run: |
+          cd theme
+          # The style ZIP's root is the contents of theme/ itself.
+          zip -r "../spectrum128k.zip" . \
+            -x "*.DS_Store" "__MACOSX/*"
+
+      - name: Publish release assets
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: Spectrum 128K ${{ steps.ver.outputs.version }}
+          body: |
+            ## Spectrum 128K — estilo eXeLearning
+
+            Estilo retro para eXeLearning inspirado en el Sinclair ZX Spectrum
+            128K: franjas multicolor, paleta BRIGHT, tipografía pixel y efecto
+            CRT opcional.
+
+            **Artefacto de esta release:**
+
+            - `spectrum128k.zip`
+              Contenido de `theme/` listo para importar desde *Utilidades
+              → Importar estilo*.
+
+            El recurso de ejemplo ("El ciclo del agua") se sirve directamente
+            desde la raíz del repo a través de `github-proxy.exelearning.dev`:
+
+            https://static.exelearning.dev/?url=https://github-proxy.exelearning.dev/?repo=ateeducacion/exelearning-style-spectrum128k&branch=main
+
+            Elaborado por el **Área de Tecnología Educativa**.
+          files: |
+            spectrum128k.zip
+          draft: false
+          prerelease: false
+
+      - name: Upload CI artefacts (non-tag builds)
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: spectrum128k-${{ steps.ver.outputs.version }}
+          path: |
+            spectrum128k.zip
+          if-no-files-found: error
