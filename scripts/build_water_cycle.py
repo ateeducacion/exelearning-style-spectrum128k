@@ -174,7 +174,7 @@ def download_source_idevice(page_id: str, block_id: str, idv_id: str) -> str:
         '<tr><th>Descripción</th><td>Unidad didáctica de ejemplo sobre el ciclo del agua, en estilo ZX Spectrum 128K.</td></tr>'
         '<tr><th>Autor</th><td>Área de Tecnología Educativa · Gobierno de Canarias</td></tr>'
         '<tr><th>Licencia</th><td>'
-        '<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license" class="cc cc-by-sa"><span></span>Creative Commons BY-SA 4.0</a>'
+        '<a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license" class="cc cc-0"><span></span>Creative Commons: CC0 1.0 Universal (dominio público)</a>'
         '</td></tr>'
         '</tbody></table>'
         '<p style="text-align:center;">Este contenido se ha creado con '
@@ -435,7 +435,7 @@ def page_credits() -> str:
         illustration_html(idv, '11-creditos-y-descargas.png', 'Créditos y descargas') +
         '''<p>Esta unidad de ejemplo ha sido creada por el <strong>Área de Tecnología Educativa</strong> de la Consejería de Educación, Formación Profesional, Actividad Física y Deportes del <strong>Gobierno de Canarias</strong>, para mostrar el estilo <em>Spectrum 128K</em>.</p>
         <p><strong>Agradecimientos:</strong> comunidad de <a href="https://exelearning.net/" target="_blank" rel="noopener">eXeLearning</a>, mantenida por el <a href="https://cedec.intef.es/" target="_blank" rel="noopener">CEDEC</a> y las diferentes administraciones educativas del Estado.</p>
-        <p><strong>Licencia:</strong> Creative Commons Reconocimiento-CompartirIgual 4.0 (CC BY-SA 4.0). Puedes reutilizar este recurso siempre que cites a su autor y lo publiques bajo la misma licencia.</p>''' +
+        <p><strong>Licencia:</strong> Creative Commons CC0 1.0 Universal (dominio público). Puedes reutilizar este recurso sin restricciones de derechos de autor.</p>''' +
         action_buttons_html())
     bid2 = nid()
     dl = download_source_idevice(pid, bid2, nid())
@@ -457,7 +457,7 @@ def page_resources() -> str:
           <li><a href="https://www.juntadeandalucia.es/educacion/permanente/materiales/" target="_blank" rel="noopener">Materiales de educación permanente</a></li>
           <li><a href="https://exelearning.net/" target="_blank" rel="noopener">exelearning.net</a> — la herramienta con la que se ha creado esta unidad</li>
         </ul>
-        <p><em>Licencia: CC BY-SA 4.0. Puedes reutilizar y modificar este material citando a su autor.</em></p>''')
+        <p><em>Licencia: CC0 1.0 Universal (dominio público). Puedes reutilizar y modificar este material sin restricciones de derechos de autor.</em></p>''')
     return nav_page(pid, '', 'Recursos', 4,
                     block(pid, bid, 1, body, icon='book', block_name='Para saber más'))
 
@@ -525,7 +525,9 @@ root = f'''<?xml version="1.0" encoding="utf-8"?>
   <odeProperty><key>pp_title</key><value>El ciclo del agua · Spectrum 128K</value></odeProperty>
   <odeProperty><key>pp_lang</key><value>es</value></odeProperty>
   <odeProperty><key>pp_author</key><value>Área de Tecnología Educativa · Gobierno de Canarias</value></odeProperty>
-  <odeProperty><key>license</key><value>creative commons: attribution - share alike 4.0</value></odeProperty>
+  <odeProperty><key>pp_license</key><value>creative commons: cc0 1.0</value></odeProperty>
+  <odeProperty><key>pp_licenseUrl</key><value>https://creativecommons.org/publicdomain/zero/1.0/</value></odeProperty>
+  <odeProperty><key>license</key><value>creative commons: cc0 1.0</value></odeProperty>
   <odeProperty><key>pp_description</key><value>Unidad didáctica de ejemplo sobre el ciclo del agua, presentada con el estilo retro Spectrum 128K.</value></odeProperty>
   <odeProperty><key>pp_theme</key><value>spectrum128k</value></odeProperty>
   <odeProperty><key>pp_addExeLink</key><value>true</value></odeProperty>
@@ -534,7 +536,7 @@ root = f'''<?xml version="1.0" encoding="utf-8"?>
   <odeProperty><key>pp_addSearchBox</key><value>true</value></odeProperty>
   <odeProperty><key>pp_addAccessibilityToolbar</key><value>false</value></odeProperty>
   <odeProperty><key>pp_extraHeadContent</key><value/></odeProperty>
-  <odeProperty><key>pp_footer</key><value><![CDATA[<p>© Área de Tecnología Educativa · Gobierno de Canarias — Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" rel="license noopener" target="_blank">Creative Commons BY-SA 4.0</a></p>]]></value></odeProperty>
+  <odeProperty><key>pp_footer</key><value><![CDATA[<p>© Área de Tecnología Educativa · Gobierno de Canarias — Licencia <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license noopener" target="_blank">Creative Commons: CC0 1.0 Universal (dominio público)</a></p>]]></value></odeProperty>
   <odeProperty><key>exportSource</key><value>true</value></odeProperty>
 </odeProperties>
 <odeNavStructures>

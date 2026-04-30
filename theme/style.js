@@ -4,7 +4,7 @@
  * Author: Área de Tecnología Educativa · Consejería de Educación, FP y
  *         Actividad Física del Gobierno de Canarias
  * Project: eXeLearning.net
- * License: Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)
+ * License: Creative Commons CC0 1.0 Universal
  *
  * Based on the Universal style script (by Ignacio Gros for EducaMadrid).
  */

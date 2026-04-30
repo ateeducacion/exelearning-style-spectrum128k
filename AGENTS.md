@@ -27,7 +27,7 @@ Two things coexist in the same repo, by design:
 ├── imagenes-generadas/          ← source PNG illustrations (1–11)
 ├── content/, html/, idevices/,
 │   libs/, content.xml, ...      ← unzipped ELPX for static browser preview
-├── LICENSE                      ← CC0 for repo infrastructure
+├── LICENSE                      ← CC0 for original repo content
 ├── README.md                    ← user-facing README (short)
 └── AGENTS.md                    ← this file
 ```
@@ -137,7 +137,7 @@ What the builder produces:
 4. **`localStorage` keys to know:** `exeDarkMode` (value `on` if enabled), `exeSpectrumTweaks` (JSON with `scanlines`, `stripes`, `pixelAll`). Default stripes preset is `128k` — tests/screenshots should clear the key before asserting visual state.
 5. **Biome lints `style.js` loudly** (`var`, `$`, etc.). Every eXeLearning theme script is in this legacy style; this is expected and is not a CI blocker.
 6. **The extracted ELPX duplicates eXeLearning libs** (`libs/`, `idevices/`, `content/`). Regenerating the example refreshes those — they are intentionally committed so `git clone && python3 -m http.server` gives a live preview without a build step, and so `github-proxy.exelearning.dev` can zip the repo into a valid ELPX without any server-side assembly.
-7. **CC0 `LICENSE` is for the repository infrastructure** (README, CI configs, example prose). The **theme itself and the example illustrations are CC BY-SA 4.0** per `theme/config.xml` and the credits page — do not conflate the two.
+7. **Use one license for original content.** The repository's original content is CC0: the theme, README/project prose, example unit and generated illustrations. Third-party runtime files and bundled libraries keep their own declared licenses.
 
 ## 8. Open work items (as of the session that produced this file)
 
