@@ -9,6 +9,14 @@
  * Based on the Universal style script (by Ignacio Gros for EducaMadrid).
  */
 
+(function addOpenInExe() {
+    if (!document.body || !document.body.classList.contains('exe-export') || document.querySelector('.exe-open-exelearning')) return;
+    var link = document.createElement('a'); link.className = 'exe-open-exelearning';
+    link.href = 'https://static.exelearning.dev/?url=https://github-proxy.exelearning.dev/?repo=ateeducacion/exelearning-style-spectrum128k&branch=main';
+    link.target = '_blank'; link.rel = 'noopener'; link.innerHTML = '<strong class="exe-open-logo">eXe</strong><span>Edit with eXeLearning</span>';
+    link.setAttribute('aria-label', 'Abrir este recurso en eXeLearning'); document.body.appendChild(link);
+}());
+
 var eXeSpectrum128kStyle = {
     breadcrumbs: true,
     dropdownNavigation: true,
