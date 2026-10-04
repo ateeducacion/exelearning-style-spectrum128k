@@ -125,7 +125,7 @@ What the builder produces:
 - 11 pages with descriptive titles (`Bienvenida`, `¿Qué es el ciclo del agua?`, `El Sol pone el agua en marcha`, …) and pixel-art block icons.
 - Each text iDevice embeds one of the 11 PNG illustrations from `imagenes-generadas/` via `content/resources/<n>-*.png`.
 - Two interactive iDevices: `scrambled-list` for ordering the phases, `trueorfalse` for four statements.
-- A `download-source-file` iDevice on the last page (download the .elp).
+- A `download-source-file` iDevice on the last page (download the .elpx).
 - Two action buttons on intro and credits: **Abrir en eXeLearning** (`static.exelearning.dev/?url=https://github-proxy.exelearning.dev/?repo=ateeducacion/exelearning-style-spectrum128k&branch=main`, which zips and serves the current state of `main` on the fly) and **Descargar estilo** (GitHub latest release `spectrum128k.zip`).
 - `pp_addSearchBox=true`, `pp_addPagination=true`, `pp_theme=spectrum128k`, `pp_exportElp=true`.
 
