@@ -144,7 +144,8 @@ window.__ELPX_MANIFEST__={
     "html/verdadero-o-falso.html",
     "html/recursos.html",
     "html/creditos-y-descargas.html",
-    "libs/elpx-manifest.js"
+    "libs/elpx-manifest.js",
+    "screenshot.png"
   ],
   "projectTitle": "El ciclo del agua · Spectrum 128K"
 };
