@@ -118,6 +118,10 @@ make -C /path/to/exelearning export-elpx \
 cd /Users/ernesto/Downloads/git/exelearning-style-spectrum128k
 rm -rf content content.dtd content.xml html idevices index.html libs search_index.js
 unzip -q -o /tmp/water-cycle.elpx -x "theme/*"
+
+# 4. Load the example-only "Edit with eXeLearning" link (idempotent)
+perl -0pi -e 's#</head>#<script src="edit-in-exelearning.js" defer></script>\n</head># unless /edit-in-exelearning\.js/' index.html
+perl -0pi -e 's#</head>#<script src="../edit-in-exelearning.js" defer></script>\n</head># unless /edit-in-exelearning\.js/' html/*.html
 ```
 
 What the builder produces:
@@ -138,6 +142,7 @@ What the builder produces:
 5. **Biome lints `style.js` loudly** (`var`, `$`, etc.). Every eXeLearning theme script is in this legacy style; this is expected and is not a CI blocker.
 6. **The extracted ELPX duplicates eXeLearning libs** (`libs/`, `idevices/`, `content/`). Regenerating the example refreshes those — they are intentionally committed so `git clone && python3 -m http.server` gives a live preview without a build step, and so `github-proxy.exelearning.dev` can zip the repo into a valid ELPX without any server-side assembly.
 7. **Use one license for original content.** The repository's original content is CC0: the theme, README/project prose, example unit and generated illustrations. Third-party runtime files and bundled libraries keep their own declared licenses.
+8. **The "Edit with eXeLearning" link belongs to the published example only.** It lives in `edit-in-exelearning.js` (repo root) and step 4 of §6 loads it from the example's HTML. Never put it in `theme/`, or every resource exported with the style would show it; the release workflow fails if `theme/style.js` or `theme/style.css` mention `exe-open-exelearning`.
 
 ## 8. Open work items (as of the session that produced this file)
 

@@ -29,6 +29,8 @@ jobs:
       - name: Build theme ZIP (spectrum128k.zip)
         run: |
           cd theme
+          # The "Edit with eXeLearning" link belongs to the example HTML only, never to the style.
+          if grep -q exe-open-exelearning style.js style.css; then exit 1; fi
           # The style ZIP's root is the contents of theme/ itself.
           zip -r "../spectrum128k.zip" . \
             -x "*.DS_Store" "__MACOSX/*"
